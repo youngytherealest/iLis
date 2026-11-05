@@ -1,0 +1,22 @@
+{
+  "name": "ilis-lpm-bulk-import-tool",
+  "version": "1.0.0",
+  "description": "ILIS LPM Excel Bulk Import Tool (VNPT C4 Gateway)",
+  "main": "server/src/index.js",
+  "scripts": {
+    "dev": "concurrently -k -n \"backend,frontend\" -c \"blue,cyan\" \"npm --prefix server start\" \"npm --prefix client run dev\"",
+    "start": "concurrently -k -n \"backend,frontend\" -c \"blue,cyan\" \"npm --prefix server start\" \"npm --prefix client run dev\"",
+    "server": "npm --prefix server start",
+    "client": "npm --prefix client run dev",
+    "build": "npm --prefix client run build"
+  },
+  "keywords": ["ilis", "lpm", "vnpt", "excel", "import", "rest-api"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.6"
+  }
+}

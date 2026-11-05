@@ -1,0 +1,2664 @@
+{
+  "settings": {
+    "gatewayUrl": "https://ilis-gateway-c4.vnpt.vn",
+    "endpointPath": "/lpm/api/ThuTucManage/Add",
+    "delayMs": 500,
+    "laThuTucCapXa": true,
+    "thoiHanTraThongBaoThue": "2",
+    "trangThai": 1,
+    "mockMode": false
+  },
+  "domainMappings": {
+    "Đất đai": "A2C100D20CBD48F39C92313351086855",
+    "Đăng ký biện pháp bảo đảm": "DA5DEB703F9C45F7B3DEFEDCA964B514"
+  },
+  "mappingProfiles": {},
+  "procedureLevels": {
+    "fileName": "vlg (2).xlsx",
+    "loadedAt": "2026-10-31T15:41:41.320Z",
+    "sheetName": "Sheet1",
+    "totalRows": 20633,
+    "totalCodes": 66,
+    "provinceCount": 37,
+    "communeCount": 29,
+    "conflicts": [],
+    "levelMap": {
+      "1.012812.H61": 1,
+      "1.013967.H61": 1,
+      "1.116188": 1,
+      "1.116189": 1,
+      "1.116192": 1,
+      "1.116190": 1,
+      "1.116193": 1,
+      "1.116194": 1,
+      "1.116195": 1,
+      "1.116196": 1,
+      "1.116198": 1,
+      "1.116197": 1,
+      "1.116191": 1,
+      "1.012805.H61": 3,
+      "1.012786.H61": 3,
+      "1.013952.H61": 3,
+      "1.013979.H61": 3,
+      "2.002750.H61": 3,
+      "1.116187": 3,
+      "1.116185": 3,
+      "1.116184": 3,
+      "1.116179": 3,
+      "1.116182": 3,
+      "1.116181": 3,
+      "1.116180": 3,
+      "1.116169": 3,
+      "1.116173": 3,
+      "1.116161": 3,
+      "1.116171": 3,
+      "1.116178": 3,
+      "1.116177": 3,
+      "1.116175": 3,
+      "1.116164": 3,
+      "1.116162": 3,
+      "1.116165": 3,
+      "1.116183": 3,
+      "1.116174": 3,
+      "1.116163": 3,
+      "1.116170": 3,
+      "1.116167": 3,
+      "1.116186": 3,
+      "1.116166": 3,
+      "1.116176": 3,
+      "1.116172": 3,
+      "1.116168": 3,
+      "1.011444.000.00.00.H61": 3,
+      "1.011442": 3,
+      "1.011443": 3,
+      "1.011445.000.00.00.H61": 3,
+      "1.011441": 3,
+      "1.012774.000.00.00.H61": 1,
+      "1.012789": 1,
+      "1.013949": 1,
+      "1.013949.H61": 1,
+      "1.013978.H61": 1,
+      "1.003554.000.00.00.H61": 1,
+      "1.012809.000.00.00.H61": 1,
+      "1.012806.000.00.00.H61": 1,
+      "1.012807.000.00.00.H61": 1,
+      "1.012778.000.00.00.H61": 1,
+      "1.012776.000.00.00.H61": 1,
+      "1.012777.H61": 1,
+      "1.012775.000.00.00.H61": 1,
+      "1.012773.000.00.00.H61": 1,
+      "1.012771.000.00.00.H61": 1,
+      "1.012817.H61": 1
+    }
+  },
+  "sessions": [
+    {
+      "id": "ses_1793463078930",
+      "fileName": "30_10_danhsachthutuc.xls",
+      "startTime": "2026-10-31T16:11:18.930Z",
+      "endTime": "2026-10-31T16:11:38.677Z",
+      "total": 35,
+      "success": 35,
+      "failed": 0,
+      "skipped": 0,
+      "status": "completed",
+      "records": [
+        {
+          "index": 1,
+          "maThuTuc": "2.002750.H61",
+          "tenThuTuc": "Công bố Danh mục khu đất dự kiến thực hiện dự án thí điểm thực hiện dự án nhà ở thương mại thông qua thỏa thuận về nhận quyền sử dụng đất hoặc đang có quyền sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:20.046Z"
+        },
+        {
+          "index": 2,
+          "maThuTuc": "1.116187",
+          "tenThuTuc": "Vĩnh Long - Giải quyết đối với trường hợp cá nhân, hộ gia đình đã được cấp Giấy chứng nhận một phần diện tích vào loại đất ở trước ngày 01 tháng 7 năm 2004, phần diện tích còn lại của thửa đất chưa được cấp Giấy chứng nhận",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:20.595Z"
+        },
+        {
+          "index": 3,
+          "maThuTuc": "1.116186",
+          "tenThuTuc": "Vĩnh Long - Đăng ký tài sản gắn liền với thửa đất đã được cấp Giấy chứng nhận hoặc đăng ký thay đổi về tài sản gắn liền với đất so với nội dung đã đăng ký, gia hạn thời hạn sở hữu nhà ở của tổ chức nước ngoài, cá nhân nước ngoài theo quy định của pháp luật về nhà ở nội dung đã đăng ký",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:21.152Z"
+        },
+        {
+          "index": 4,
+          "maThuTuc": "1.116185",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với trường hợp hộ gia đình, cá nhân đang sử dụng đất không đúng mục đích đã được Nhà nước công nhận quyền sử dụng đất trước ngày 01 tháng 7 năm 2014 - Vĩnh Long",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:21.695Z"
+        },
+        {
+          "index": 5,
+          "maThuTuc": "1.116184",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động chuyển mục đích sử dụng đất không phải xin phép cơ quan nhà nước có thẩm quyền",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:22.239Z"
+        },
+        {
+          "index": 6,
+          "maThuTuc": "1.116183",
+          "tenThuTuc": "Vĩnh Long - Xóa ghi nợ tiền sử dụng đất, lệ phí trước bạ trên Giấy chứng nhận đã cấp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:22.784Z"
+        },
+        {
+          "index": 7,
+          "maThuTuc": "1.116182",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động đối với trường hợp thay đổi quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất theo thỏa thuận của các thành viên hộ gia đình hoặc của vợ và chồng; quyền sử dụng đất xây dựng công trình trên mặt đất phục vụ cho việc vận hành, khai thác sử dụng công trình ngầm, quyền sở hữu công trình ngầm; bán tài sản, điều chuyển, chuyển nhượng quyền sử dụng đất là tài sản công theo quy định của pháp luật về quản lý, sử dụng tài sản công; nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất theo kết quả giải quyết tranh chấp, khiếu nại, tố cáo về đất đai hoặc bản án, quyết định của Tòa án, quyết định thi hành án của cơ quan thi hành án đã được thi hành; quyết định hoặc phán quyết của Trọng tài thương mại Việt Nam về giải quyết tranh chấp giữa các bên phát sinh từ hoạt động thương mại liên quan đến đất đai; nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất do xử lý tài sản thế chấp là quyền sử dụng đất, tài sản gắn liền với đất đã được đăng ký, bao gồm cả xử lý khoản nợ có nguồn gốc từ khoản nợ xấu của tổ chức tín dụng, chi nhánh ngân hàng nước ngoài",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:23.330Z"
+        },
+        {
+          "index": 8,
+          "maThuTuc": "1.116181",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động thay đổi quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất do chia, tách, hợp nhất, sáp nhập tổ chức hoặc chuyển đổi mô hình tổ chức, chuyển đổi loại hình doanh nghiệp theo quy định của pháp luật về doanh nghiệp; điều chỉnh quy hoạch xây dựng chi tiết; cấp Giấy chứng nhận cho từng thửa đất theo quy hoạch xây dựng chi tiết cho chủ đầu tư dự án có nhu cầu",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:23.875Z"
+        },
+        {
+          "index": 9,
+          "maThuTuc": "1.11618",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động đối với trường hợp đổi tên hoặc thay đổi thông tin về người sử dụng đất, chủ sở hữu tài sản gắn liền với đất hoặc thay đổi số hiệu hoặc địa chỉ của thửa đất; thay đổi hạn chế quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất hoặc có thay đổi quyền đối với thửa đất liền kề; giảm diện tích thửa đất do sạt lở tự nhiên",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:24.419Z"
+        },
+        {
+          "index": 10,
+          "maThuTuc": "1.116179",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất trong các trường hợp chuyển đổi quyền sử dụng đất nông nghiệp mà không theo phương án dồn điền, đổi thửa; chuyển nhượng, thừa kế, tặng cho quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất, góp vốn bằng quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất; cho thuê, cho thuê lại quyền sử dụng đất trong dự án xây dựng kinh doanh kết cấu hạ tầng; bán hoặc tặng cho hoặc để thừa kế hoặc góp vốn bằng tài sản gắn liền với đất thuê của Nhà nước theo hình thức thuê đất trả tiền hàng năm hoặc trường hợp chuyển nhượng quyền khai thác khoáng sản theo quy định của pháp luật về địa chất và khoáng sản",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:24.962Z"
+        },
+        {
+          "index": 11,
+          "maThuTuc": "1.116178",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất cho người nhận chuyển nhượng quyền sử dụng đất, quyền sở hữu nhà ở, công trình xây dựng trong dự án bất động sản",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:25.519Z"
+        },
+        {
+          "index": 12,
+          "maThuTuc": "1.116177",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với trường hợp đã chuyển quyền sử dụng đất trước ngày 01 tháng 8 năm 2024 mà bên chuyển quyền đã được cấp Giấy chứng nhận nhưng chưa thực hiện thủ tục chuyển quyền theo quy định",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:26.068Z"
+        },
+        {
+          "index": 13,
+          "maThuTuc": "1.116176",
+          "tenThuTuc": "Vĩnh Long - Cấp lại Giấy chứng nhận do bị mất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:26.619Z"
+        },
+        {
+          "index": 14,
+          "maThuTuc": "1.116175",
+          "tenThuTuc": "Vĩnh Long - Tách thửa hoặc hợp thửa đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:27.160Z"
+        },
+        {
+          "index": 15,
+          "maThuTuc": "1.116174",
+          "tenThuTuc": "Vĩnh Long - Cấp đổi Giấy chứng nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:27.711Z"
+        },
+        {
+          "index": 16,
+          "maThuTuc": "1.116173",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với thửa đất có diện tích tăng thêm do thay đổi ranh giới so với Giấy chứng nhận đã cấp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:28.257Z"
+        },
+        {
+          "index": 17,
+          "maThuTuc": "1.116172",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động đối với trường hợp thành viên của hộ gia đình hoặc cá nhân đang sử dụng đất thành lập doanh nghiệp tư nhân và sử dụng đất vào hoạt động sản xuất kinh doanh của doanh nghiệp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:28.808Z"
+        },
+        {
+          "index": 18,
+          "maThuTuc": "1.116171",
+          "tenThuTuc": "Vĩnh Long - Xóa đăng ký cho thuê, cho thuê lại quyền sử dụng đất trong dự án xây dựng kinh doanh kết cấu hạ tầng",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:29.352Z"
+        },
+        {
+          "index": 19,
+          "maThuTuc": "1.11617",
+          "tenThuTuc": "Vĩnh Long - Đăng ký đất đai lần đầu đối với trường hợp được giao đất để quản lý",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:29.900Z"
+        },
+        {
+          "index": 20,
+          "maThuTuc": "1.116169",
+          "tenThuTuc": "Vĩnh Long - Thu hồi Giấy chứng nhận đã cấp không đúng quy định của pháp luật đất đai do người sử dụng đất, chủ sở hữu tài sản gắn liền với đất phát hiện và cấp lại Giấy chứng nhận sau khi thu hồi",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:30.448Z"
+        },
+        {
+          "index": 21,
+          "maThuTuc": "1.116168",
+          "tenThuTuc": "Vĩnh Long - Đính chính Giấy chứng nhận đã cấp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:31.002Z"
+        },
+        {
+          "index": 22,
+          "maThuTuc": "1.116167",
+          "tenThuTuc": "Vĩnh Long - Đăng ký đất đai, tài sản gắn liền với đất, cấp Giấy chứng nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất lần đầu đối với tổ chức đang sử dụng đất theo hình thức quy định tại Điều 119 và Điều 120 Luật Đất đai, người gốc Việt Nam định cư ở nước ngoài nhận thừa kế quyền sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:31.544Z"
+        },
+        {
+          "index": 23,
+          "maThuTuc": "1.116166",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với trường hợp chuyển nhượng dự án đầu tư có sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:32.094Z"
+        },
+        {
+          "index": 24,
+          "maThuTuc": "1.116165",
+          "tenThuTuc": "Vĩnh Long - Tổ chức kinh tế nhận chuyển nhượng, thuê quyền sử dụng đất, nhận góp vốn bằng quyền sử dụng đất để thực hiện dự án đầu tư",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:32.641Z"
+        },
+        {
+          "index": 25,
+          "maThuTuc": "1.116164",
+          "tenThuTuc": "Vĩnh Long - Sử dụng đất kết hợp đa mục đích, gia hạn phương án sử dụng đất kết hợp đa mục đích",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:33.189Z"
+        },
+        {
+          "index": 26,
+          "maThuTuc": "1.116163",
+          "tenThuTuc": "Vĩnh Long - Thẩm định, phê duyệt phương án sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:33.739Z"
+        },
+        {
+          "index": 27,
+          "maThuTuc": "1.116162",
+          "tenThuTuc": "Vĩnh Long - Chuyển mục đích sử dụng đất; chuyển hình thức sử dụng đất; gia hạn sử dụng đất khi hết thời hạn sử dụng đất; điều chỉnh thời hạn sử dụng đất của dự án đầu tư",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:34.289Z"
+        },
+        {
+          "index": 28,
+          "maThuTuc": "1.116161",
+          "tenThuTuc": "Vĩnh Long - Giao đất, cho thuê đất đối với trường hợp giao đất, cho thuê đất không đấu giá quyền sử dụng đất, không đấu thầu lựa chọn nhà đầu tư thực hiện dự án có sử dụng đất và trường hợp giao đất, cho thuê đất thông qua đấu thầu lựa chọn nhà đầu tư thực hiện dự án có sử dụng đất; giao đất, cho thuê đất đồng thời giao khu vực biển để thực hiện hoạt động lấn biển",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:34.837Z"
+        },
+        {
+          "index": 29,
+          "maThuTuc": "1.013979.H61",
+          "tenThuTuc": "Tặng cho quyền sử dụng đất cho Nhà nước hoặc cộng đồng dân cư hoặc mở rộng đường giao thông đối với trường hợp thửa đất chưa được cấp Giấy chứng nhận",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:35.380Z"
+        },
+        {
+          "index": 30,
+          "maThuTuc": "1.013967.H61",
+          "tenThuTuc": "Giải quyết tranh chấp đất đai thuộc thẩm quyền của Chủ tịch Ủy ban nhân dân cấp xã",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:35.934Z"
+        },
+        {
+          "index": 31,
+          "maThuTuc": "1.013952.H61",
+          "tenThuTuc": "Điều chỉnh quyết định giao đất, cho thuê đất, cho phép chuyển mục đích sử dụng đất do thay đổi căn cứ quyết định giao đất, cho thuê đất, cho phép chuyển mục đích sử dụng đất; điều chỉnh thời hạn sử dụng đất của dự án đầu tư.",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:36.482Z"
+        },
+        {
+          "index": 32,
+          "maThuTuc": "1.012812.H61",
+          "tenThuTuc": "Hòa giải tranh chấp đất đai",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:37.025Z"
+        },
+        {
+          "index": 33,
+          "maThuTuc": "1.012805.H61",
+          "tenThuTuc": "Giải quyết tranh chấp đất đai thuộc thẩm quyền của Chủ tịch Ủy ban nhân dân cấp tỉnh",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:37.574Z"
+        },
+        {
+          "index": 34,
+          "maThuTuc": "1.012786.H61",
+          "tenThuTuc": "Cấp lại Giấy chứng nhận do bị mất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:38.125Z"
+        },
+        {
+          "index": 35,
+          "maThuTuc": "1.012762",
+          "tenThuTuc": "1.012762",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:38.676Z"
+        }
+      ]
+    },
+    {
+      "id": "ses_1793463061385",
+      "fileName": "30_10_danhsachthutuc (1).xls",
+      "startTime": "2026-10-31T16:11:01.385Z",
+      "endTime": "2026-10-31T16:11:04.744Z",
+      "total": 5,
+      "success": 5,
+      "failed": 0,
+      "skipped": 0,
+      "status": "completed",
+      "records": [
+        {
+          "index": 1,
+          "maThuTuc": "1.011445.000.00.00.H61",
+          "tenThuTuc": "Chuyển tiếp đăng ký thế chấp quyền tài sản phát sinh từ hợp đồng mua bán nhà ở hoặc từ hợp đồng mua bán tài sản khác gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:02.536Z"
+        },
+        {
+          "index": 2,
+          "maThuTuc": "1.011444.000.00.00.H61",
+          "tenThuTuc": "Đăng ký thông báo xử lý tài sản bảo đảm, đăng ký thay đổi, xóa đăng ký thông báo xử lý tài sản bảo đảm là quyền sử dụng đất, tài sản gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:03.098Z"
+        },
+        {
+          "index": 3,
+          "maThuTuc": "1.011443",
+          "tenThuTuc": "Xóa đăng ký biện pháp bảo đảm bằng quyền sử dụng đất, tài sản gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:03.649Z"
+        },
+        {
+          "index": 4,
+          "maThuTuc": "1.011442",
+          "tenThuTuc": "Đăng ký thay đổi biện pháp bảo đảm bằng quyền sử dụng đất, tài sản gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:04.198Z"
+        },
+        {
+          "index": 5,
+          "maThuTuc": "1.011441",
+          "tenThuTuc": "Đăng ký biện pháp bảo đảm bằng quyền sử dụng đất, tài sản gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:11:04.743Z"
+        }
+      ]
+    },
+    {
+      "id": "ses_1793462768591",
+      "fileName": "30_10_danhsachthutuc.xls",
+      "startTime": "2026-10-31T16:06:08.591Z",
+      "endTime": "2026-10-31T16:06:28.328Z",
+      "total": 35,
+      "success": 35,
+      "failed": 0,
+      "skipped": 0,
+      "status": "completed",
+      "records": [
+        {
+          "index": 1,
+          "maThuTuc": "73115",
+          "tenThuTuc": "Công bố Danh mục khu đất dự kiến thực hiện dự án thí điểm thực hiện dự án nhà ở thương mại thông qua thỏa thuận về nhận quyền sử dụng đất hoặc đang có quyền sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:09.703Z"
+        },
+        {
+          "index": 2,
+          "maThuTuc": "124319",
+          "tenThuTuc": "Vĩnh Long - Giải quyết đối với trường hợp cá nhân, hộ gia đình đã được cấp Giấy chứng nhận một phần diện tích vào loại đất ở trước ngày 01 tháng 7 năm 2004, phần diện tích còn lại của thửa đất chưa được cấp Giấy chứng nhận",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:10.257Z"
+        },
+        {
+          "index": 3,
+          "maThuTuc": "124402",
+          "tenThuTuc": "Vĩnh Long - Đăng ký tài sản gắn liền với thửa đất đã được cấp Giấy chứng nhận hoặc đăng ký thay đổi về tài sản gắn liền với đất so với nội dung đã đăng ký, gia hạn thời hạn sở hữu nhà ở của tổ chức nước ngoài, cá nhân nước ngoài theo quy định của pháp luật về nhà ở nội dung đã đăng ký",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:10.799Z"
+        },
+        {
+          "index": 4,
+          "maThuTuc": "124320",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với trường hợp hộ gia đình, cá nhân đang sử dụng đất không đúng mục đích đã được Nhà nước công nhận quyền sử dụng đất trước ngày 01 tháng 7 năm 2014 - Vĩnh Long",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:11.341Z"
+        },
+        {
+          "index": 5,
+          "maThuTuc": "124321",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động chuyển mục đích sử dụng đất không phải xin phép cơ quan nhà nước có thẩm quyền",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:11.889Z"
+        },
+        {
+          "index": 6,
+          "maThuTuc": "124389",
+          "tenThuTuc": "Vĩnh Long - Xóa ghi nợ tiền sử dụng đất, lệ phí trước bạ trên Giấy chứng nhận đã cấp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:12.434Z"
+        },
+        {
+          "index": 7,
+          "maThuTuc": "124339",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động đối với trường hợp thay đổi quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất theo thỏa thuận của các thành viên hộ gia đình hoặc của vợ và chồng; quyền sử dụng đất xây dựng công trình trên mặt đất phục vụ cho việc vận hành, khai thác sử dụng công trình ngầm, quyền sở hữu công trình ngầm; bán tài sản, điều chuyển, chuyển nhượng quyền sử dụng đất là tài sản công theo quy định của pháp luật về quản lý, sử dụng tài sản công; nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất theo kết quả giải quyết tranh chấp, khiếu nại, tố cáo về đất đai hoặc bản án, quyết định của Tòa án, quyết định thi hành án của cơ quan thi hành án đã được thi hành; quyết định hoặc phán quyết của Trọng tài thương mại Việt Nam về giải quyết tranh chấp giữa các bên phát sinh từ hoạt động thương mại liên quan đến đất đai; nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất do xử lý tài sản thế chấp là quyền sử dụng đất, tài sản gắn liền với đất đã được đăng ký, bao gồm cả xử lý khoản nợ có nguồn gốc từ khoản nợ xấu của tổ chức tín dụng, chi nhánh ngân hàng nước ngoài",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:12.992Z"
+        },
+        {
+          "index": 8,
+          "maThuTuc": "124360",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động thay đổi quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất do chia, tách, hợp nhất, sáp nhập tổ chức hoặc chuyển đổi mô hình tổ chức, chuyển đổi loại hình doanh nghiệp theo quy định của pháp luật về doanh nghiệp; điều chỉnh quy hoạch xây dựng chi tiết; cấp Giấy chứng nhận cho từng thửa đất theo quy hoạch xây dựng chi tiết cho chủ đầu tư dự án có nhu cầu",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:13.539Z"
+        },
+        {
+          "index": 9,
+          "maThuTuc": "124362",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động đối với trường hợp đổi tên hoặc thay đổi thông tin về người sử dụng đất, chủ sở hữu tài sản gắn liền với đất hoặc thay đổi số hiệu hoặc địa chỉ của thửa đất; thay đổi hạn chế quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất hoặc có thay đổi quyền đối với thửa đất liền kề; giảm diện tích thửa đất do sạt lở tự nhiên",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:14.089Z"
+        },
+        {
+          "index": 10,
+          "maThuTuc": "124322",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất trong các trường hợp chuyển đổi quyền sử dụng đất nông nghiệp mà không theo phương án dồn điền, đổi thửa; chuyển nhượng, thừa kế, tặng cho quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất, góp vốn bằng quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất; cho thuê, cho thuê lại quyền sử dụng đất trong dự án xây dựng kinh doanh kết cấu hạ tầng; bán hoặc tặng cho hoặc để thừa kế hoặc góp vốn bằng tài sản gắn liền với đất thuê của Nhà nước theo hình thức thuê đất trả tiền hàng năm hoặc trường hợp chuyển nhượng quyền khai thác khoáng sản theo quy định của pháp luật về địa chất và khoáng sản",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:14.629Z"
+        },
+        {
+          "index": 11,
+          "maThuTuc": "124379",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất cho người nhận chuyển nhượng quyền sử dụng đất, quyền sở hữu nhà ở, công trình xây dựng trong dự án bất động sản",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:15.177Z"
+        },
+        {
+          "index": 12,
+          "maThuTuc": "124380",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với trường hợp đã chuyển quyền sử dụng đất trước ngày 01 tháng 8 năm 2024 mà bên chuyển quyền đã được cấp Giấy chứng nhận nhưng chưa thực hiện thủ tục chuyển quyền theo quy định",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:15.723Z"
+        },
+        {
+          "index": 13,
+          "maThuTuc": "124420",
+          "tenThuTuc": "Vĩnh Long - Cấp lại Giấy chứng nhận do bị mất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:16.271Z"
+        },
+        {
+          "index": 14,
+          "maThuTuc": "124382",
+          "tenThuTuc": "Vĩnh Long - Tách thửa hoặc hợp thửa đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:16.818Z"
+        },
+        {
+          "index": 15,
+          "maThuTuc": "124390",
+          "tenThuTuc": "Vĩnh Long - Cấp đổi Giấy chứng nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:17.362Z"
+        },
+        {
+          "index": 16,
+          "maThuTuc": "124365",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với thửa đất có diện tích tăng thêm do thay đổi ranh giới so với Giấy chứng nhận đã cấp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:17.911Z"
+        },
+        {
+          "index": 17,
+          "maThuTuc": "124421",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động đối với trường hợp thành viên của hộ gia đình hoặc cá nhân đang sử dụng đất thành lập doanh nghiệp tư nhân và sử dụng đất vào hoạt động sản xuất kinh doanh của doanh nghiệp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:18.458Z"
+        },
+        {
+          "index": 18,
+          "maThuTuc": "124367",
+          "tenThuTuc": "Vĩnh Long - Xóa đăng ký cho thuê, cho thuê lại quyền sử dụng đất trong dự án xây dựng kinh doanh kết cấu hạ tầng",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:19.008Z"
+        },
+        {
+          "index": 19,
+          "maThuTuc": "124400",
+          "tenThuTuc": "Vĩnh Long - Đăng ký đất đai lần đầu đối với trường hợp được giao đất để quản lý",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:19.552Z"
+        },
+        {
+          "index": 20,
+          "maThuTuc": "124363",
+          "tenThuTuc": "Vĩnh Long - Thu hồi Giấy chứng nhận đã cấp không đúng quy định của pháp luật đất đai do người sử dụng đất, chủ sở hữu tài sản gắn liền với đất phát hiện và cấp lại Giấy chứng nhận sau khi thu hồi",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:20.102Z"
+        },
+        {
+          "index": 21,
+          "maThuTuc": "124422",
+          "tenThuTuc": "Vĩnh Long - Đính chính Giấy chứng nhận đã cấp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:20.653Z"
+        },
+        {
+          "index": 22,
+          "maThuTuc": "124401",
+          "tenThuTuc": "Vĩnh Long - Đăng ký đất đai, tài sản gắn liền với đất, cấp Giấy chứng nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất lần đầu đối với tổ chức đang sử dụng đất theo hình thức quy định tại Điều 119 và Điều 120 Luật Đất đai, người gốc Việt Nam định cư ở nước ngoài nhận thừa kế quyền sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:21.196Z"
+        },
+        {
+          "index": 23,
+          "maThuTuc": "124403",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với trường hợp chuyển nhượng dự án đầu tư có sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:21.750Z"
+        },
+        {
+          "index": 24,
+          "maThuTuc": "124386",
+          "tenThuTuc": "Vĩnh Long - Tổ chức kinh tế nhận chuyển nhượng, thuê quyền sử dụng đất, nhận góp vốn bằng quyền sử dụng đất để thực hiện dự án đầu tư",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:22.297Z"
+        },
+        {
+          "index": 25,
+          "maThuTuc": "124383",
+          "tenThuTuc": "Vĩnh Long - Sử dụng đất kết hợp đa mục đích, gia hạn phương án sử dụng đất kết hợp đa mục đích",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:22.846Z"
+        },
+        {
+          "index": 26,
+          "maThuTuc": "124399",
+          "tenThuTuc": "Vĩnh Long - Thẩm định, phê duyệt phương án sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:23.390Z"
+        },
+        {
+          "index": 27,
+          "maThuTuc": "124385",
+          "tenThuTuc": "Vĩnh Long - Chuyển mục đích sử dụng đất; chuyển hình thức sử dụng đất; gia hạn sử dụng đất khi hết thời hạn sử dụng đất; điều chỉnh thời hạn sử dụng đất của dự án đầu tư",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:23.939Z"
+        },
+        {
+          "index": 28,
+          "maThuTuc": "124366",
+          "tenThuTuc": "Vĩnh Long - Giao đất, cho thuê đất đối với trường hợp giao đất, cho thuê đất không đấu giá quyền sử dụng đất, không đấu thầu lựa chọn nhà đầu tư thực hiện dự án có sử dụng đất và trường hợp giao đất, cho thuê đất thông qua đấu thầu lựa chọn nhà đầu tư thực hiện dự án có sử dụng đất; giao đất, cho thuê đất đồng thời giao khu vực biển để thực hiện hoạt động lấn biển",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:24.479Z"
+        },
+        {
+          "index": 29,
+          "maThuTuc": "70781",
+          "tenThuTuc": "Tặng cho quyền sử dụng đất cho Nhà nước hoặc cộng đồng dân cư hoặc mở rộng đường giao thông đối với trường hợp thửa đất chưa được cấp Giấy chứng nhận",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:25.038Z"
+        },
+        {
+          "index": 30,
+          "maThuTuc": "70773",
+          "tenThuTuc": "Giải quyết tranh chấp đất đai thuộc thẩm quyền của Chủ tịch Ủy ban nhân dân cấp xã",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:25.583Z"
+        },
+        {
+          "index": 31,
+          "maThuTuc": "70737",
+          "tenThuTuc": "Điều chỉnh quyết định giao đất, cho thuê đất, cho phép chuyển mục đích sử dụng đất do thay đổi căn cứ quyết định giao đất, cho thuê đất, cho phép chuyển mục đích sử dụng đất; điều chỉnh thời hạn sử dụng đất của dự án đầu tư.",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:26.130Z"
+        },
+        {
+          "index": 32,
+          "maThuTuc": "69752",
+          "tenThuTuc": "Hòa giải tranh chấp đất đai",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:26.676Z"
+        },
+        {
+          "index": 33,
+          "maThuTuc": "69573",
+          "tenThuTuc": "Giải quyết tranh chấp đất đai thuộc thẩm quyền của Chủ tịch Ủy ban nhân dân cấp tỉnh",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:27.228Z"
+        },
+        {
+          "index": 34,
+          "maThuTuc": "69735",
+          "tenThuTuc": "Cấp lại Giấy chứng nhận do bị mất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:27.775Z"
+        },
+        {
+          "index": 35,
+          "maThuTuc": "97193",
+          "tenThuTuc": "1.012762",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:06:28.327Z"
+        }
+      ]
+    },
+    {
+      "id": "ses_1793462748630",
+      "fileName": "30_10_danhsachthutuc (1).xls",
+      "startTime": "2026-10-31T16:05:48.630Z",
+      "endTime": "2026-10-31T16:05:51.946Z",
+      "total": 5,
+      "success": 5,
+      "failed": 0,
+      "skipped": 0,
+      "status": "completed",
+      "records": [
+        {
+          "index": 1,
+          "maThuTuc": "69701",
+          "tenThuTuc": "Chuyển tiếp đăng ký thế chấp quyền tài sản phát sinh từ hợp đồng mua bán nhà ở hoặc từ hợp đồng mua bán tài sản khác gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:05:49.747Z"
+        },
+        {
+          "index": 2,
+          "maThuTuc": "69391",
+          "tenThuTuc": "Đăng ký thông báo xử lý tài sản bảo đảm, đăng ký thay đổi, xóa đăng ký thông báo xử lý tài sản bảo đảm là quyền sử dụng đất, tài sản gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:05:50.295Z"
+        },
+        {
+          "index": 3,
+          "maThuTuc": "69700",
+          "tenThuTuc": "Xóa đăng ký biện pháp bảo đảm bằng quyền sử dụng đất, tài sản gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:05:50.845Z"
+        },
+        {
+          "index": 4,
+          "maThuTuc": "69533",
+          "tenThuTuc": "Đăng ký thay đổi biện pháp bảo đảm bằng quyền sử dụng đất, tài sản gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:05:51.395Z"
+        },
+        {
+          "index": 5,
+          "maThuTuc": "69714",
+          "tenThuTuc": "Đăng ký biện pháp bảo đảm bằng quyền sử dụng đất, tài sản gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T16:05:51.946Z"
+        }
+      ]
+    },
+    {
+      "id": "ses_1793462364152",
+      "fileName": "30_10_danhsachthutuc.xls",
+      "startTime": "2026-10-31T15:59:24.152Z",
+      "endTime": "2026-10-31T15:59:43.989Z",
+      "total": 35,
+      "success": 35,
+      "failed": 0,
+      "skipped": 0,
+      "status": "completed",
+      "records": [
+        {
+          "index": 1,
+          "maThuTuc": "73115",
+          "tenThuTuc": "Công bố Danh mục khu đất dự kiến thực hiện dự án thí điểm thực hiện dự án nhà ở thương mại thông qua thỏa thuận về nhận quyền sử dụng đất hoặc đang có quyền sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:25.289Z"
+        },
+        {
+          "index": 2,
+          "maThuTuc": "124319",
+          "tenThuTuc": "Vĩnh Long - Giải quyết đối với trường hợp cá nhân, hộ gia đình đã được cấp Giấy chứng nhận một phần diện tích vào loại đất ở trước ngày 01 tháng 7 năm 2004, phần diện tích còn lại của thửa đất chưa được cấp Giấy chứng nhận",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:25.838Z"
+        },
+        {
+          "index": 3,
+          "maThuTuc": "124402",
+          "tenThuTuc": "Vĩnh Long - Đăng ký tài sản gắn liền với thửa đất đã được cấp Giấy chứng nhận hoặc đăng ký thay đổi về tài sản gắn liền với đất so với nội dung đã đăng ký, gia hạn thời hạn sở hữu nhà ở của tổ chức nước ngoài, cá nhân nước ngoài theo quy định của pháp luật về nhà ở nội dung đã đăng ký",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:26.394Z"
+        },
+        {
+          "index": 4,
+          "maThuTuc": "124320",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với trường hợp hộ gia đình, cá nhân đang sử dụng đất không đúng mục đích đã được Nhà nước công nhận quyền sử dụng đất trước ngày 01 tháng 7 năm 2014 - Vĩnh Long",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:26.953Z"
+        },
+        {
+          "index": 5,
+          "maThuTuc": "124321",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động chuyển mục đích sử dụng đất không phải xin phép cơ quan nhà nước có thẩm quyền",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:27.503Z"
+        },
+        {
+          "index": 6,
+          "maThuTuc": "124389",
+          "tenThuTuc": "Vĩnh Long - Xóa ghi nợ tiền sử dụng đất, lệ phí trước bạ trên Giấy chứng nhận đã cấp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:28.056Z"
+        },
+        {
+          "index": 7,
+          "maThuTuc": "124339",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động đối với trường hợp thay đổi quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất theo thỏa thuận của các thành viên hộ gia đình hoặc của vợ và chồng; quyền sử dụng đất xây dựng công trình trên mặt đất phục vụ cho việc vận hành, khai thác sử dụng công trình ngầm, quyền sở hữu công trình ngầm; bán tài sản, điều chuyển, chuyển nhượng quyền sử dụng đất là tài sản công theo quy định của pháp luật về quản lý, sử dụng tài sản công; nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất theo kết quả giải quyết tranh chấp, khiếu nại, tố cáo về đất đai hoặc bản án, quyết định của Tòa án, quyết định thi hành án của cơ quan thi hành án đã được thi hành; quyết định hoặc phán quyết của Trọng tài thương mại Việt Nam về giải quyết tranh chấp giữa các bên phát sinh từ hoạt động thương mại liên quan đến đất đai; nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất do xử lý tài sản thế chấp là quyền sử dụng đất, tài sản gắn liền với đất đã được đăng ký, bao gồm cả xử lý khoản nợ có nguồn gốc từ khoản nợ xấu của tổ chức tín dụng, chi nhánh ngân hàng nước ngoài",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:28.616Z"
+        },
+        {
+          "index": 8,
+          "maThuTuc": "124360",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động thay đổi quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất do chia, tách, hợp nhất, sáp nhập tổ chức hoặc chuyển đổi mô hình tổ chức, chuyển đổi loại hình doanh nghiệp theo quy định của pháp luật về doanh nghiệp; điều chỉnh quy hoạch xây dựng chi tiết; cấp Giấy chứng nhận cho từng thửa đất theo quy hoạch xây dựng chi tiết cho chủ đầu tư dự án có nhu cầu",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:29.174Z"
+        },
+        {
+          "index": 9,
+          "maThuTuc": "124362",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động đối với trường hợp đổi tên hoặc thay đổi thông tin về người sử dụng đất, chủ sở hữu tài sản gắn liền với đất hoặc thay đổi số hiệu hoặc địa chỉ của thửa đất; thay đổi hạn chế quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất hoặc có thay đổi quyền đối với thửa đất liền kề; giảm diện tích thửa đất do sạt lở tự nhiên",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:29.722Z"
+        },
+        {
+          "index": 10,
+          "maThuTuc": "124322",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất trong các trường hợp chuyển đổi quyền sử dụng đất nông nghiệp mà không theo phương án dồn điền, đổi thửa; chuyển nhượng, thừa kế, tặng cho quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất, góp vốn bằng quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất; cho thuê, cho thuê lại quyền sử dụng đất trong dự án xây dựng kinh doanh kết cấu hạ tầng; bán hoặc tặng cho hoặc để thừa kế hoặc góp vốn bằng tài sản gắn liền với đất thuê của Nhà nước theo hình thức thuê đất trả tiền hàng năm hoặc trường hợp chuyển nhượng quyền khai thác khoáng sản theo quy định của pháp luật về địa chất và khoáng sản",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:30.271Z"
+        },
+        {
+          "index": 11,
+          "maThuTuc": "124379",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất cho người nhận chuyển nhượng quyền sử dụng đất, quyền sở hữu nhà ở, công trình xây dựng trong dự án bất động sản",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:30.819Z"
+        },
+        {
+          "index": 12,
+          "maThuTuc": "124380",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với trường hợp đã chuyển quyền sử dụng đất trước ngày 01 tháng 8 năm 2024 mà bên chuyển quyền đã được cấp Giấy chứng nhận nhưng chưa thực hiện thủ tục chuyển quyền theo quy định",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:31.370Z"
+        },
+        {
+          "index": 13,
+          "maThuTuc": "124420",
+          "tenThuTuc": "Vĩnh Long - Cấp lại Giấy chứng nhận do bị mất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:31.923Z"
+        },
+        {
+          "index": 14,
+          "maThuTuc": "124382",
+          "tenThuTuc": "Vĩnh Long - Tách thửa hoặc hợp thửa đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:32.469Z"
+        },
+        {
+          "index": 15,
+          "maThuTuc": "124390",
+          "tenThuTuc": "Vĩnh Long - Cấp đổi Giấy chứng nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:33.022Z"
+        },
+        {
+          "index": 16,
+          "maThuTuc": "124365",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với thửa đất có diện tích tăng thêm do thay đổi ranh giới so với Giấy chứng nhận đã cấp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:33.569Z"
+        },
+        {
+          "index": 17,
+          "maThuTuc": "124421",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động đối với trường hợp thành viên của hộ gia đình hoặc cá nhân đang sử dụng đất thành lập doanh nghiệp tư nhân và sử dụng đất vào hoạt động sản xuất kinh doanh của doanh nghiệp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:34.124Z"
+        },
+        {
+          "index": 18,
+          "maThuTuc": "124367",
+          "tenThuTuc": "Vĩnh Long - Xóa đăng ký cho thuê, cho thuê lại quyền sử dụng đất trong dự án xây dựng kinh doanh kết cấu hạ tầng",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:34.671Z"
+        },
+        {
+          "index": 19,
+          "maThuTuc": "124400",
+          "tenThuTuc": "Vĩnh Long - Đăng ký đất đai lần đầu đối với trường hợp được giao đất để quản lý",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:35.221Z"
+        },
+        {
+          "index": 20,
+          "maThuTuc": "124363",
+          "tenThuTuc": "Vĩnh Long - Thu hồi Giấy chứng nhận đã cấp không đúng quy định của pháp luật đất đai do người sử dụng đất, chủ sở hữu tài sản gắn liền với đất phát hiện và cấp lại Giấy chứng nhận sau khi thu hồi",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:35.771Z"
+        },
+        {
+          "index": 21,
+          "maThuTuc": "124422",
+          "tenThuTuc": "Vĩnh Long - Đính chính Giấy chứng nhận đã cấp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:36.324Z"
+        },
+        {
+          "index": 22,
+          "maThuTuc": "124401",
+          "tenThuTuc": "Vĩnh Long - Đăng ký đất đai, tài sản gắn liền với đất, cấp Giấy chứng nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất lần đầu đối với tổ chức đang sử dụng đất theo hình thức quy định tại Điều 119 và Điều 120 Luật Đất đai, người gốc Việt Nam định cư ở nước ngoài nhận thừa kế quyền sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:36.874Z"
+        },
+        {
+          "index": 23,
+          "maThuTuc": "124403",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với trường hợp chuyển nhượng dự án đầu tư có sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:37.422Z"
+        },
+        {
+          "index": 24,
+          "maThuTuc": "124386",
+          "tenThuTuc": "Vĩnh Long - Tổ chức kinh tế nhận chuyển nhượng, thuê quyền sử dụng đất, nhận góp vốn bằng quyền sử dụng đất để thực hiện dự án đầu tư",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:37.973Z"
+        },
+        {
+          "index": 25,
+          "maThuTuc": "124383",
+          "tenThuTuc": "Vĩnh Long - Sử dụng đất kết hợp đa mục đích, gia hạn phương án sử dụng đất kết hợp đa mục đích",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:38.523Z"
+        },
+        {
+          "index": 26,
+          "maThuTuc": "124399",
+          "tenThuTuc": "Vĩnh Long - Thẩm định, phê duyệt phương án sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:39.073Z"
+        },
+        {
+          "index": 27,
+          "maThuTuc": "124385",
+          "tenThuTuc": "Vĩnh Long - Chuyển mục đích sử dụng đất; chuyển hình thức sử dụng đất; gia hạn sử dụng đất khi hết thời hạn sử dụng đất; điều chỉnh thời hạn sử dụng đất của dự án đầu tư",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:39.626Z"
+        },
+        {
+          "index": 28,
+          "maThuTuc": "124366",
+          "tenThuTuc": "Vĩnh Long - Giao đất, cho thuê đất đối với trường hợp giao đất, cho thuê đất không đấu giá quyền sử dụng đất, không đấu thầu lựa chọn nhà đầu tư thực hiện dự án có sử dụng đất và trường hợp giao đất, cho thuê đất thông qua đấu thầu lựa chọn nhà đầu tư thực hiện dự án có sử dụng đất; giao đất, cho thuê đất đồng thời giao khu vực biển để thực hiện hoạt động lấn biển",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:40.170Z"
+        },
+        {
+          "index": 29,
+          "maThuTuc": "70781",
+          "tenThuTuc": "Tặng cho quyền sử dụng đất cho Nhà nước hoặc cộng đồng dân cư hoặc mở rộng đường giao thông đối với trường hợp thửa đất chưa được cấp Giấy chứng nhận",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:40.714Z"
+        },
+        {
+          "index": 30,
+          "maThuTuc": "70773",
+          "tenThuTuc": "Giải quyết tranh chấp đất đai thuộc thẩm quyền của Chủ tịch Ủy ban nhân dân cấp xã",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:41.255Z"
+        },
+        {
+          "index": 31,
+          "maThuTuc": "70737",
+          "tenThuTuc": "Điều chỉnh quyết định giao đất, cho thuê đất, cho phép chuyển mục đích sử dụng đất do thay đổi căn cứ quyết định giao đất, cho thuê đất, cho phép chuyển mục đích sử dụng đất; điều chỉnh thời hạn sử dụng đất của dự án đầu tư.",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:41.810Z"
+        },
+        {
+          "index": 32,
+          "maThuTuc": "69752",
+          "tenThuTuc": "Hòa giải tranh chấp đất đai",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:42.354Z"
+        },
+        {
+          "index": 33,
+          "maThuTuc": "69573",
+          "tenThuTuc": "Giải quyết tranh chấp đất đai thuộc thẩm quyền của Chủ tịch Ủy ban nhân dân cấp tỉnh",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:42.906Z"
+        },
+        {
+          "index": 34,
+          "maThuTuc": "69735",
+          "tenThuTuc": "Cấp lại Giấy chứng nhận do bị mất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:43.446Z"
+        },
+        {
+          "index": 35,
+          "maThuTuc": "97193",
+          "tenThuTuc": "1.012762",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:43.989Z"
+        }
+      ]
+    },
+    {
+      "id": "ses_1793462338450",
+      "fileName": "30_10_danhsachthutuc (1).xls",
+      "startTime": "2026-10-31T15:58:58.450Z",
+      "endTime": "2026-10-31T15:59:01.953Z",
+      "total": 5,
+      "success": 5,
+      "failed": 0,
+      "skipped": 0,
+      "status": "completed",
+      "records": [
+        {
+          "index": 1,
+          "maThuTuc": "69701",
+          "tenThuTuc": "Chuyển tiếp đăng ký thế chấp quyền tài sản phát sinh từ hợp đồng mua bán nhà ở hoặc từ hợp đồng mua bán tài sản khác gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:58:59.727Z"
+        },
+        {
+          "index": 2,
+          "maThuTuc": "69391",
+          "tenThuTuc": "Đăng ký thông báo xử lý tài sản bảo đảm, đăng ký thay đổi, xóa đăng ký thông báo xử lý tài sản bảo đảm là quyền sử dụng đất, tài sản gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:00.298Z"
+        },
+        {
+          "index": 3,
+          "maThuTuc": "69700",
+          "tenThuTuc": "Xóa đăng ký biện pháp bảo đảm bằng quyền sử dụng đất, tài sản gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:00.855Z"
+        },
+        {
+          "index": 4,
+          "maThuTuc": "69533",
+          "tenThuTuc": "Đăng ký thay đổi biện pháp bảo đảm bằng quyền sử dụng đất, tài sản gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:01.406Z"
+        },
+        {
+          "index": 5,
+          "maThuTuc": "69714",
+          "tenThuTuc": "Đăng ký biện pháp bảo đảm bằng quyền sử dụng đất, tài sản gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:59:01.952Z"
+        }
+      ]
+    },
+    {
+      "id": "ses_1793461896209",
+      "fileName": "30_10_danhsachthutuc.xls",
+      "startTime": "2026-10-31T15:51:36.209Z",
+      "endTime": "2026-10-31T15:51:56.124Z",
+      "total": 35,
+      "success": 35,
+      "failed": 0,
+      "skipped": 0,
+      "status": "completed",
+      "records": [
+        {
+          "index": 1,
+          "maThuTuc": "73115",
+          "tenThuTuc": "Công bố Danh mục khu đất dự kiến thực hiện dự án thí điểm thực hiện dự án nhà ở thương mại thông qua thỏa thuận về nhận quyền sử dụng đất hoặc đang có quyền sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - HCTM: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:37.425Z"
+        },
+        {
+          "index": 2,
+          "maThuTuc": "124319",
+          "tenThuTuc": "Vĩnh Long - Giải quyết đối với trường hợp cá nhân, hộ gia đình đã được cấp Giấy chứng nhận một phần diện tích vào loại đất ở trước ngày 01 tháng 7 năm 2004, phần diện tích còn lại của thửa đất chưa được cấp Giấy chứng nhận",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - NZSO: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:38.055Z"
+        },
+        {
+          "index": 3,
+          "maThuTuc": "124402",
+          "tenThuTuc": "Vĩnh Long - Đăng ký tài sản gắn liền với thửa đất đã được cấp Giấy chứng nhận hoặc đăng ký thay đổi về tài sản gắn liền với đất so với nội dung đã đăng ký, gia hạn thời hạn sở hữu nhà ở của tổ chức nước ngoài, cá nhân nước ngoài theo quy định của pháp luật về nhà ở nội dung đã đăng ký",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - CXOP: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:38.601Z"
+        },
+        {
+          "index": 4,
+          "maThuTuc": "124320",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với trường hợp hộ gia đình, cá nhân đang sử dụng đất không đúng mục đích đã được Nhà nước công nhận quyền sử dụng đất trước ngày 01 tháng 7 năm 2014 - Vĩnh Long",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - HUKI: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:39.148Z"
+        },
+        {
+          "index": 5,
+          "maThuTuc": "124321",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động chuyển mục đích sử dụng đất không phải xin phép cơ quan nhà nước có thẩm quyền",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - BAHJ: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:39.699Z"
+        },
+        {
+          "index": 6,
+          "maThuTuc": "124389",
+          "tenThuTuc": "Vĩnh Long - Xóa ghi nợ tiền sử dụng đất, lệ phí trước bạ trên Giấy chứng nhận đã cấp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - VVWF: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:40.237Z"
+        },
+        {
+          "index": 7,
+          "maThuTuc": "124339",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động đối với trường hợp thay đổi quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất theo thỏa thuận của các thành viên hộ gia đình hoặc của vợ và chồng; quyền sử dụng đất xây dựng công trình trên mặt đất phục vụ cho việc vận hành, khai thác sử dụng công trình ngầm, quyền sở hữu công trình ngầm; bán tài sản, điều chuyển, chuyển nhượng quyền sử dụng đất là tài sản công theo quy định của pháp luật về quản lý, sử dụng tài sản công; nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất theo kết quả giải quyết tranh chấp, khiếu nại, tố cáo về đất đai hoặc bản án, quyết định của Tòa án, quyết định thi hành án của cơ quan thi hành án đã được thi hành; quyết định hoặc phán quyết của Trọng tài thương mại Việt Nam về giải quyết tranh chấp giữa các bên phát sinh từ hoạt động thương mại liên quan đến đất đai; nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất do xử lý tài sản thế chấp là quyền sử dụng đất, tài sản gắn liền với đất đã được đăng ký, bao gồm cả xử lý khoản nợ có nguồn gốc từ khoản nợ xấu của tổ chức tín dụng, chi nhánh ngân hàng nước ngoài",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - OVEL: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:40.788Z"
+        },
+        {
+          "index": 8,
+          "maThuTuc": "124360",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động thay đổi quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất do chia, tách, hợp nhất, sáp nhập tổ chức hoặc chuyển đổi mô hình tổ chức, chuyển đổi loại hình doanh nghiệp theo quy định của pháp luật về doanh nghiệp; điều chỉnh quy hoạch xây dựng chi tiết; cấp Giấy chứng nhận cho từng thửa đất theo quy hoạch xây dựng chi tiết cho chủ đầu tư dự án có nhu cầu",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - GBMZ: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:41.336Z"
+        },
+        {
+          "index": 9,
+          "maThuTuc": "124362",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động đối với trường hợp đổi tên hoặc thay đổi thông tin về người sử dụng đất, chủ sở hữu tài sản gắn liền với đất hoặc thay đổi số hiệu hoặc địa chỉ của thửa đất; thay đổi hạn chế quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất hoặc có thay đổi quyền đối với thửa đất liền kề; giảm diện tích thửa đất do sạt lở tự nhiên",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - LWTH: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:41.886Z"
+        },
+        {
+          "index": 10,
+          "maThuTuc": "124322",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất trong các trường hợp chuyển đổi quyền sử dụng đất nông nghiệp mà không theo phương án dồn điền, đổi thửa; chuyển nhượng, thừa kế, tặng cho quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất, góp vốn bằng quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất; cho thuê, cho thuê lại quyền sử dụng đất trong dự án xây dựng kinh doanh kết cấu hạ tầng; bán hoặc tặng cho hoặc để thừa kế hoặc góp vốn bằng tài sản gắn liền với đất thuê của Nhà nước theo hình thức thuê đất trả tiền hàng năm hoặc trường hợp chuyển nhượng quyền khai thác khoáng sản theo quy định của pháp luật về địa chất và khoáng sản",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - DVDS: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:42.438Z"
+        },
+        {
+          "index": 11,
+          "maThuTuc": "124379",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất cho người nhận chuyển nhượng quyền sử dụng đất, quyền sở hữu nhà ở, công trình xây dựng trong dự án bất động sản",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - GFZB: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:43.006Z"
+        },
+        {
+          "index": 12,
+          "maThuTuc": "124380",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với trường hợp đã chuyển quyền sử dụng đất trước ngày 01 tháng 8 năm 2024 mà bên chuyển quyền đã được cấp Giấy chứng nhận nhưng chưa thực hiện thủ tục chuyển quyền theo quy định",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - TNTF: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:43.558Z"
+        },
+        {
+          "index": 13,
+          "maThuTuc": "124420",
+          "tenThuTuc": "Vĩnh Long - Cấp lại Giấy chứng nhận do bị mất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - MCYG: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:44.105Z"
+        },
+        {
+          "index": 14,
+          "maThuTuc": "124382",
+          "tenThuTuc": "Vĩnh Long - Tách thửa hoặc hợp thửa đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - HGUW: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:44.654Z"
+        },
+        {
+          "index": 15,
+          "maThuTuc": "124390",
+          "tenThuTuc": "Vĩnh Long - Cấp đổi Giấy chứng nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - JDIO: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:45.201Z"
+        },
+        {
+          "index": 16,
+          "maThuTuc": "124365",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với thửa đất có diện tích tăng thêm do thay đổi ranh giới so với Giấy chứng nhận đã cấp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - LPRY: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:45.759Z"
+        },
+        {
+          "index": 17,
+          "maThuTuc": "124421",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động đối với trường hợp thành viên của hộ gia đình hoặc cá nhân đang sử dụng đất thành lập doanh nghiệp tư nhân và sử dụng đất vào hoạt động sản xuất kinh doanh của doanh nghiệp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - EHSV: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:46.302Z"
+        },
+        {
+          "index": 18,
+          "maThuTuc": "124367",
+          "tenThuTuc": "Vĩnh Long - Xóa đăng ký cho thuê, cho thuê lại quyền sử dụng đất trong dự án xây dựng kinh doanh kết cấu hạ tầng",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - ELCU: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:46.840Z"
+        },
+        {
+          "index": 19,
+          "maThuTuc": "124400",
+          "tenThuTuc": "Vĩnh Long - Đăng ký đất đai lần đầu đối với trường hợp được giao đất để quản lý",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - LRRM: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:47.385Z"
+        },
+        {
+          "index": 20,
+          "maThuTuc": "124363",
+          "tenThuTuc": "Vĩnh Long - Thu hồi Giấy chứng nhận đã cấp không đúng quy định của pháp luật đất đai do người sử dụng đất, chủ sở hữu tài sản gắn liền với đất phát hiện và cấp lại Giấy chứng nhận sau khi thu hồi",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - BBZQ: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:47.922Z"
+        },
+        {
+          "index": 21,
+          "maThuTuc": "124422",
+          "tenThuTuc": "Vĩnh Long - Đính chính Giấy chứng nhận đã cấp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - LFVS: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:48.472Z"
+        },
+        {
+          "index": 22,
+          "maThuTuc": "124401",
+          "tenThuTuc": "Vĩnh Long - Đăng ký đất đai, tài sản gắn liền với đất, cấp Giấy chứng nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất lần đầu đối với tổ chức đang sử dụng đất theo hình thức quy định tại Điều 119 và Điều 120 Luật Đất đai, người gốc Việt Nam định cư ở nước ngoài nhận thừa kế quyền sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - KQFL: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:49.029Z"
+        },
+        {
+          "index": 23,
+          "maThuTuc": "124403",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với trường hợp chuyển nhượng dự án đầu tư có sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - BKKJ: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:49.569Z"
+        },
+        {
+          "index": 24,
+          "maThuTuc": "124386",
+          "tenThuTuc": "Vĩnh Long - Tổ chức kinh tế nhận chuyển nhượng, thuê quyền sử dụng đất, nhận góp vốn bằng quyền sử dụng đất để thực hiện dự án đầu tư",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - IFOC: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:50.105Z"
+        },
+        {
+          "index": 25,
+          "maThuTuc": "124383",
+          "tenThuTuc": "Vĩnh Long - Sử dụng đất kết hợp đa mục đích, gia hạn phương án sử dụng đất kết hợp đa mục đích",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - KYXS: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:50.654Z"
+        },
+        {
+          "index": 26,
+          "maThuTuc": "124399",
+          "tenThuTuc": "Vĩnh Long - Thẩm định, phê duyệt phương án sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - NYLL: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:51.207Z"
+        },
+        {
+          "index": 27,
+          "maThuTuc": "124385",
+          "tenThuTuc": "Vĩnh Long - Chuyển mục đích sử dụng đất; chuyển hình thức sử dụng đất; gia hạn sử dụng đất khi hết thời hạn sử dụng đất; điều chỉnh thời hạn sử dụng đất của dự án đầu tư",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - EKLC: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:51.757Z"
+        },
+        {
+          "index": 28,
+          "maThuTuc": "124366",
+          "tenThuTuc": "Vĩnh Long - Giao đất, cho thuê đất đối với trường hợp giao đất, cho thuê đất không đấu giá quyền sử dụng đất, không đấu thầu lựa chọn nhà đầu tư thực hiện dự án có sử dụng đất và trường hợp giao đất, cho thuê đất thông qua đấu thầu lựa chọn nhà đầu tư thực hiện dự án có sử dụng đất; giao đất, cho thuê đất đồng thời giao khu vực biển để thực hiện hoạt động lấn biển",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - UOWZ: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:52.312Z"
+        },
+        {
+          "index": 29,
+          "maThuTuc": "70781",
+          "tenThuTuc": "Tặng cho quyền sử dụng đất cho Nhà nước hoặc cộng đồng dân cư hoặc mở rộng đường giao thông đối với trường hợp thửa đất chưa được cấp Giấy chứng nhận",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - DSAZ: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:52.857Z"
+        },
+        {
+          "index": 30,
+          "maThuTuc": "70773",
+          "tenThuTuc": "Giải quyết tranh chấp đất đai thuộc thẩm quyền của Chủ tịch Ủy ban nhân dân cấp xã",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - GNHB: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:53.406Z"
+        },
+        {
+          "index": 31,
+          "maThuTuc": "70737",
+          "tenThuTuc": "Điều chỉnh quyết định giao đất, cho thuê đất, cho phép chuyển mục đích sử dụng đất do thay đổi căn cứ quyết định giao đất, cho thuê đất, cho phép chuyển mục đích sử dụng đất; điều chỉnh thời hạn sử dụng đất của dự án đầu tư.",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - YIGY: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:53.953Z"
+        },
+        {
+          "index": 32,
+          "maThuTuc": "69752",
+          "tenThuTuc": "Hòa giải tranh chấp đất đai",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - AOXG: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:54.501Z"
+        },
+        {
+          "index": 33,
+          "maThuTuc": "69573",
+          "tenThuTuc": "Giải quyết tranh chấp đất đai thuộc thẩm quyền của Chủ tịch Ủy ban nhân dân cấp tỉnh",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - SSEG: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:55.040Z"
+        },
+        {
+          "index": 34,
+          "maThuTuc": "69735",
+          "tenThuTuc": "Cấp lại Giấy chứng nhận do bị mất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - DXAU: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:55.589Z"
+        },
+        {
+          "index": 35,
+          "maThuTuc": "97193",
+          "tenThuTuc": "1.012762",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "FRE - DJZU: Mã thủ tục đã tồn tại. Vui lòng nhập lại.",
+          "executedAt": "2026-10-31T15:51:56.123Z"
+        }
+      ]
+    },
+    {
+      "id": "ses_1793461868323",
+      "fileName": "30_10_danhsachthutuc.xls",
+      "startTime": "2026-10-31T15:51:08.323Z",
+      "endTime": "2026-10-31T15:51:28.821Z",
+      "total": 35,
+      "success": 35,
+      "failed": 0,
+      "skipped": 0,
+      "status": "completed",
+      "records": [
+        {
+          "index": 1,
+          "maThuTuc": "73115",
+          "tenThuTuc": "Công bố Danh mục khu đất dự kiến thực hiện dự án thí điểm thực hiện dự án nhà ở thương mại thông qua thỏa thuận về nhận quyền sử dụng đất hoặc đang có quyền sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:10.038Z"
+        },
+        {
+          "index": 2,
+          "maThuTuc": "124319",
+          "tenThuTuc": "Vĩnh Long - Giải quyết đối với trường hợp cá nhân, hộ gia đình đã được cấp Giấy chứng nhận một phần diện tích vào loại đất ở trước ngày 01 tháng 7 năm 2004, phần diện tích còn lại của thửa đất chưa được cấp Giấy chứng nhận",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:10.654Z"
+        },
+        {
+          "index": 3,
+          "maThuTuc": "124402",
+          "tenThuTuc": "Vĩnh Long - Đăng ký tài sản gắn liền với thửa đất đã được cấp Giấy chứng nhận hoặc đăng ký thay đổi về tài sản gắn liền với đất so với nội dung đã đăng ký, gia hạn thời hạn sở hữu nhà ở của tổ chức nước ngoài, cá nhân nước ngoài theo quy định của pháp luật về nhà ở nội dung đã đăng ký",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:11.202Z"
+        },
+        {
+          "index": 4,
+          "maThuTuc": "124320",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với trường hợp hộ gia đình, cá nhân đang sử dụng đất không đúng mục đích đã được Nhà nước công nhận quyền sử dụng đất trước ngày 01 tháng 7 năm 2014 - Vĩnh Long",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:11.751Z"
+        },
+        {
+          "index": 5,
+          "maThuTuc": "124321",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động chuyển mục đích sử dụng đất không phải xin phép cơ quan nhà nước có thẩm quyền",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:12.303Z"
+        },
+        {
+          "index": 6,
+          "maThuTuc": "124389",
+          "tenThuTuc": "Vĩnh Long - Xóa ghi nợ tiền sử dụng đất, lệ phí trước bạ trên Giấy chứng nhận đã cấp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:12.854Z"
+        },
+        {
+          "index": 7,
+          "maThuTuc": "124339",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động đối với trường hợp thay đổi quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất theo thỏa thuận của các thành viên hộ gia đình hoặc của vợ và chồng; quyền sử dụng đất xây dựng công trình trên mặt đất phục vụ cho việc vận hành, khai thác sử dụng công trình ngầm, quyền sở hữu công trình ngầm; bán tài sản, điều chuyển, chuyển nhượng quyền sử dụng đất là tài sản công theo quy định của pháp luật về quản lý, sử dụng tài sản công; nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất theo kết quả giải quyết tranh chấp, khiếu nại, tố cáo về đất đai hoặc bản án, quyết định của Tòa án, quyết định thi hành án của cơ quan thi hành án đã được thi hành; quyết định hoặc phán quyết của Trọng tài thương mại Việt Nam về giải quyết tranh chấp giữa các bên phát sinh từ hoạt động thương mại liên quan đến đất đai; nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất do xử lý tài sản thế chấp là quyền sử dụng đất, tài sản gắn liền với đất đã được đăng ký, bao gồm cả xử lý khoản nợ có nguồn gốc từ khoản nợ xấu của tổ chức tín dụng, chi nhánh ngân hàng nước ngoài",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:13.406Z"
+        },
+        {
+          "index": 8,
+          "maThuTuc": "124360",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động thay đổi quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất do chia, tách, hợp nhất, sáp nhập tổ chức hoặc chuyển đổi mô hình tổ chức, chuyển đổi loại hình doanh nghiệp theo quy định của pháp luật về doanh nghiệp; điều chỉnh quy hoạch xây dựng chi tiết; cấp Giấy chứng nhận cho từng thửa đất theo quy hoạch xây dựng chi tiết cho chủ đầu tư dự án có nhu cầu",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:13.952Z"
+        },
+        {
+          "index": 9,
+          "maThuTuc": "124362",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động đối với trường hợp đổi tên hoặc thay đổi thông tin về người sử dụng đất, chủ sở hữu tài sản gắn liền với đất hoặc thay đổi số hiệu hoặc địa chỉ của thửa đất; thay đổi hạn chế quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất hoặc có thay đổi quyền đối với thửa đất liền kề; giảm diện tích thửa đất do sạt lở tự nhiên",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:14.501Z"
+        },
+        {
+          "index": 10,
+          "maThuTuc": "124322",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất trong các trường hợp chuyển đổi quyền sử dụng đất nông nghiệp mà không theo phương án dồn điền, đổi thửa; chuyển nhượng, thừa kế, tặng cho quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất, góp vốn bằng quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất; cho thuê, cho thuê lại quyền sử dụng đất trong dự án xây dựng kinh doanh kết cấu hạ tầng; bán hoặc tặng cho hoặc để thừa kế hoặc góp vốn bằng tài sản gắn liền với đất thuê của Nhà nước theo hình thức thuê đất trả tiền hàng năm hoặc trường hợp chuyển nhượng quyền khai thác khoáng sản theo quy định của pháp luật về địa chất và khoáng sản",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:15.054Z"
+        },
+        {
+          "index": 11,
+          "maThuTuc": "124379",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất cho người nhận chuyển nhượng quyền sử dụng đất, quyền sở hữu nhà ở, công trình xây dựng trong dự án bất động sản",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:15.601Z"
+        },
+        {
+          "index": 12,
+          "maThuTuc": "124380",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với trường hợp đã chuyển quyền sử dụng đất trước ngày 01 tháng 8 năm 2024 mà bên chuyển quyền đã được cấp Giấy chứng nhận nhưng chưa thực hiện thủ tục chuyển quyền theo quy định",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:16.150Z"
+        },
+        {
+          "index": 13,
+          "maThuTuc": "124420",
+          "tenThuTuc": "Vĩnh Long - Cấp lại Giấy chứng nhận do bị mất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:16.700Z"
+        },
+        {
+          "index": 14,
+          "maThuTuc": "124382",
+          "tenThuTuc": "Vĩnh Long - Tách thửa hoặc hợp thửa đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:17.249Z"
+        },
+        {
+          "index": 15,
+          "maThuTuc": "124390",
+          "tenThuTuc": "Vĩnh Long - Cấp đổi Giấy chứng nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:17.801Z"
+        },
+        {
+          "index": 16,
+          "maThuTuc": "124365",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với thửa đất có diện tích tăng thêm do thay đổi ranh giới so với Giấy chứng nhận đã cấp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:18.349Z"
+        },
+        {
+          "index": 17,
+          "maThuTuc": "124421",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động đối với trường hợp thành viên của hộ gia đình hoặc cá nhân đang sử dụng đất thành lập doanh nghiệp tư nhân và sử dụng đất vào hoạt động sản xuất kinh doanh của doanh nghiệp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:18.902Z"
+        },
+        {
+          "index": 18,
+          "maThuTuc": "124367",
+          "tenThuTuc": "Vĩnh Long - Xóa đăng ký cho thuê, cho thuê lại quyền sử dụng đất trong dự án xây dựng kinh doanh kết cấu hạ tầng",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:19.451Z"
+        },
+        {
+          "index": 19,
+          "maThuTuc": "124400",
+          "tenThuTuc": "Vĩnh Long - Đăng ký đất đai lần đầu đối với trường hợp được giao đất để quản lý",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:20.002Z"
+        },
+        {
+          "index": 20,
+          "maThuTuc": "124363",
+          "tenThuTuc": "Vĩnh Long - Thu hồi Giấy chứng nhận đã cấp không đúng quy định của pháp luật đất đai do người sử dụng đất, chủ sở hữu tài sản gắn liền với đất phát hiện và cấp lại Giấy chứng nhận sau khi thu hồi",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:20.548Z"
+        },
+        {
+          "index": 21,
+          "maThuTuc": "124422",
+          "tenThuTuc": "Vĩnh Long - Đính chính Giấy chứng nhận đã cấp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:21.100Z"
+        },
+        {
+          "index": 22,
+          "maThuTuc": "124401",
+          "tenThuTuc": "Vĩnh Long - Đăng ký đất đai, tài sản gắn liền với đất, cấp Giấy chứng nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất lần đầu đối với tổ chức đang sử dụng đất theo hình thức quy định tại Điều 119 và Điều 120 Luật Đất đai, người gốc Việt Nam định cư ở nước ngoài nhận thừa kế quyền sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:21.649Z"
+        },
+        {
+          "index": 23,
+          "maThuTuc": "124403",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với trường hợp chuyển nhượng dự án đầu tư có sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:22.198Z"
+        },
+        {
+          "index": 24,
+          "maThuTuc": "124386",
+          "tenThuTuc": "Vĩnh Long - Tổ chức kinh tế nhận chuyển nhượng, thuê quyền sử dụng đất, nhận góp vốn bằng quyền sử dụng đất để thực hiện dự án đầu tư",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:22.755Z"
+        },
+        {
+          "index": 25,
+          "maThuTuc": "124383",
+          "tenThuTuc": "Vĩnh Long - Sử dụng đất kết hợp đa mục đích, gia hạn phương án sử dụng đất kết hợp đa mục đích",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:23.302Z"
+        },
+        {
+          "index": 26,
+          "maThuTuc": "124399",
+          "tenThuTuc": "Vĩnh Long - Thẩm định, phê duyệt phương án sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:23.853Z"
+        },
+        {
+          "index": 27,
+          "maThuTuc": "124385",
+          "tenThuTuc": "Vĩnh Long - Chuyển mục đích sử dụng đất; chuyển hình thức sử dụng đất; gia hạn sử dụng đất khi hết thời hạn sử dụng đất; điều chỉnh thời hạn sử dụng đất của dự án đầu tư",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:24.400Z"
+        },
+        {
+          "index": 28,
+          "maThuTuc": "124366",
+          "tenThuTuc": "Vĩnh Long - Giao đất, cho thuê đất đối với trường hợp giao đất, cho thuê đất không đấu giá quyền sử dụng đất, không đấu thầu lựa chọn nhà đầu tư thực hiện dự án có sử dụng đất và trường hợp giao đất, cho thuê đất thông qua đấu thầu lựa chọn nhà đầu tư thực hiện dự án có sử dụng đất; giao đất, cho thuê đất đồng thời giao khu vực biển để thực hiện hoạt động lấn biển",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:24.952Z"
+        },
+        {
+          "index": 29,
+          "maThuTuc": "70781",
+          "tenThuTuc": "Tặng cho quyền sử dụng đất cho Nhà nước hoặc cộng đồng dân cư hoặc mở rộng đường giao thông đối với trường hợp thửa đất chưa được cấp Giấy chứng nhận",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:25.504Z"
+        },
+        {
+          "index": 30,
+          "maThuTuc": "70773",
+          "tenThuTuc": "Giải quyết tranh chấp đất đai thuộc thẩm quyền của Chủ tịch Ủy ban nhân dân cấp xã",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:26.052Z"
+        },
+        {
+          "index": 31,
+          "maThuTuc": "70737",
+          "tenThuTuc": "Điều chỉnh quyết định giao đất, cho thuê đất, cho phép chuyển mục đích sử dụng đất do thay đổi căn cứ quyết định giao đất, cho thuê đất, cho phép chuyển mục đích sử dụng đất; điều chỉnh thời hạn sử dụng đất của dự án đầu tư.",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:26.603Z"
+        },
+        {
+          "index": 32,
+          "maThuTuc": "69752",
+          "tenThuTuc": "Hòa giải tranh chấp đất đai",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:27.147Z"
+        },
+        {
+          "index": 33,
+          "maThuTuc": "69573",
+          "tenThuTuc": "Giải quyết tranh chấp đất đai thuộc thẩm quyền của Chủ tịch Ủy ban nhân dân cấp tỉnh",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:27.701Z"
+        },
+        {
+          "index": 34,
+          "maThuTuc": "69735",
+          "tenThuTuc": "Cấp lại Giấy chứng nhận do bị mất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:28.254Z"
+        },
+        {
+          "index": 35,
+          "maThuTuc": "97193",
+          "tenThuTuc": "1.012762",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-31T15:51:28.821Z"
+        }
+      ]
+    },
+    {
+      "id": "ses_1793368220711",
+      "fileName": "30_10_danhsachthutuc (1).xls",
+      "startTime": "2026-10-30T13:50:20.711Z",
+      "endTime": "2026-10-30T13:50:22.996Z",
+      "total": 5,
+      "success": 5,
+      "failed": 0,
+      "skipped": 0,
+      "status": "completed",
+      "records": [
+        {
+          "index": 1,
+          "maThuTuc": "1.011445.000.00.00.H61",
+          "tenThuTuc": "Chuyển tiếp đăng ký thế chấp quyền tài sản phát sinh từ hợp đồng mua bán nhà ở hoặc từ hợp đồng mua bán tài sản khác gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:50:20.788Z"
+        },
+        {
+          "index": 2,
+          "maThuTuc": "1.011444.000.00.00.H61",
+          "tenThuTuc": "Đăng ký thông báo xử lý tài sản bảo đảm, đăng ký thay đổi, xóa đăng ký thông báo xử lý tài sản bảo đảm là quyền sử dụng đất, tài sản gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:50:21.342Z"
+        },
+        {
+          "index": 3,
+          "maThuTuc": "1.011443",
+          "tenThuTuc": "Xóa đăng ký biện pháp bảo đảm bằng quyền sử dụng đất, tài sản gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:50:21.887Z"
+        },
+        {
+          "index": 4,
+          "maThuTuc": "1.011442",
+          "tenThuTuc": "Đăng ký thay đổi biện pháp bảo đảm bằng quyền sử dụng đất, tài sản gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:50:22.427Z"
+        },
+        {
+          "index": 5,
+          "maThuTuc": "1.011441",
+          "tenThuTuc": "Đăng ký biện pháp bảo đảm bằng quyền sử dụng đất, tài sản gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:50:22.996Z"
+        }
+      ]
+    },
+    {
+      "id": "ses_1793368070520",
+      "fileName": "30_10_danhsachthutuc.xls",
+      "startTime": "2026-10-30T13:47:50.520Z",
+      "endTime": "2026-10-30T13:48:16.785Z",
+      "total": 35,
+      "success": 35,
+      "failed": 0,
+      "skipped": 0,
+      "status": "completed",
+      "records": [
+        {
+          "index": 1,
+          "maThuTuc": "2.002750.H61",
+          "tenThuTuc": "Công bố Danh mục khu đất dự kiến thực hiện dự án thí điểm thực hiện dự án nhà ở thương mại thông qua thỏa thuận về nhận quyền sử dụng đất hoặc đang có quyền sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:47:50.633Z"
+        },
+        {
+          "index": 2,
+          "maThuTuc": "1.116187",
+          "tenThuTuc": "Vĩnh Long - Giải quyết đối với trường hợp cá nhân, hộ gia đình đã được cấp Giấy chứng nhận một phần diện tích vào loại đất ở trước ngày 01 tháng 7 năm 2004, phần diện tích còn lại của thửa đất chưa được cấp Giấy chứng nhận",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:47:51.195Z"
+        },
+        {
+          "index": 3,
+          "maThuTuc": "1.116186",
+          "tenThuTuc": "Vĩnh Long - Đăng ký tài sản gắn liền với thửa đất đã được cấp Giấy chứng nhận hoặc đăng ký thay đổi về tài sản gắn liền với đất so với nội dung đã đăng ký, gia hạn thời hạn sở hữu nhà ở của tổ chức nước ngoài, cá nhân nước ngoài theo quy định của pháp luật về nhà ở nội dung đã đăng ký",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:47:51.754Z"
+        },
+        {
+          "index": 4,
+          "maThuTuc": "1.116185",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với trường hợp hộ gia đình, cá nhân đang sử dụng đất không đúng mục đích đã được Nhà nước công nhận quyền sử dụng đất trước ngày 01 tháng 7 năm 2014 - Vĩnh Long",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:47:52.317Z"
+        },
+        {
+          "index": 5,
+          "maThuTuc": "1.116184",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động chuyển mục đích sử dụng đất không phải xin phép cơ quan nhà nước có thẩm quyền",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:47:55.221Z"
+        },
+        {
+          "index": 6,
+          "maThuTuc": "1.116183",
+          "tenThuTuc": "Vĩnh Long - Xóa ghi nợ tiền sử dụng đất, lệ phí trước bạ trên Giấy chứng nhận đã cấp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:47:55.787Z"
+        },
+        {
+          "index": 7,
+          "maThuTuc": "1.116182",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động đối với trường hợp thay đổi quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất theo thỏa thuận của các thành viên hộ gia đình hoặc của vợ và chồng; quyền sử dụng đất xây dựng công trình trên mặt đất phục vụ cho việc vận hành, khai thác sử dụng công trình ngầm, quyền sở hữu công trình ngầm; bán tài sản, điều chuyển, chuyển nhượng quyền sử dụng đất là tài sản công theo quy định của pháp luật về quản lý, sử dụng tài sản công; nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất theo kết quả giải quyết tranh chấp, khiếu nại, tố cáo về đất đai hoặc bản án, quyết định của Tòa án, quyết định thi hành án của cơ quan thi hành án đã được thi hành; quyết định hoặc phán quyết của Trọng tài thương mại Việt Nam về giải quyết tranh chấp giữa các bên phát sinh từ hoạt động thương mại liên quan đến đất đai; nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất do xử lý tài sản thế chấp là quyền sử dụng đất, tài sản gắn liền với đất đã được đăng ký, bao gồm cả xử lý khoản nợ có nguồn gốc từ khoản nợ xấu của tổ chức tín dụng, chi nhánh ngân hàng nước ngoài",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:47:56.357Z"
+        },
+        {
+          "index": 8,
+          "maThuTuc": "1.116181",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động thay đổi quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất do chia, tách, hợp nhất, sáp nhập tổ chức hoặc chuyển đổi mô hình tổ chức, chuyển đổi loại hình doanh nghiệp theo quy định của pháp luật về doanh nghiệp; điều chỉnh quy hoạch xây dựng chi tiết; cấp Giấy chứng nhận cho từng thửa đất theo quy hoạch xây dựng chi tiết cho chủ đầu tư dự án có nhu cầu",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:47:56.911Z"
+        },
+        {
+          "index": 9,
+          "maThuTuc": "1.11618",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động đối với trường hợp đổi tên hoặc thay đổi thông tin về người sử dụng đất, chủ sở hữu tài sản gắn liền với đất hoặc thay đổi số hiệu hoặc địa chỉ của thửa đất; thay đổi hạn chế quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất hoặc có thay đổi quyền đối với thửa đất liền kề; giảm diện tích thửa đất do sạt lở tự nhiên",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:47:57.470Z"
+        },
+        {
+          "index": 10,
+          "maThuTuc": "1.116179",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất trong các trường hợp chuyển đổi quyền sử dụng đất nông nghiệp mà không theo phương án dồn điền, đổi thửa; chuyển nhượng, thừa kế, tặng cho quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất, góp vốn bằng quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất; cho thuê, cho thuê lại quyền sử dụng đất trong dự án xây dựng kinh doanh kết cấu hạ tầng; bán hoặc tặng cho hoặc để thừa kế hoặc góp vốn bằng tài sản gắn liền với đất thuê của Nhà nước theo hình thức thuê đất trả tiền hàng năm hoặc trường hợp chuyển nhượng quyền khai thác khoáng sản theo quy định của pháp luật về địa chất và khoáng sản",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:47:58.015Z"
+        },
+        {
+          "index": 11,
+          "maThuTuc": "1.116178",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất cho người nhận chuyển nhượng quyền sử dụng đất, quyền sở hữu nhà ở, công trình xây dựng trong dự án bất động sản",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:47:58.560Z"
+        },
+        {
+          "index": 12,
+          "maThuTuc": "1.116177",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với trường hợp đã chuyển quyền sử dụng đất trước ngày 01 tháng 8 năm 2024 mà bên chuyển quyền đã được cấp Giấy chứng nhận nhưng chưa thực hiện thủ tục chuyển quyền theo quy định",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:47:59.106Z"
+        },
+        {
+          "index": 13,
+          "maThuTuc": "1.116176",
+          "tenThuTuc": "Vĩnh Long - Cấp lại Giấy chứng nhận do bị mất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:47:59.651Z"
+        },
+        {
+          "index": 14,
+          "maThuTuc": "1.116175",
+          "tenThuTuc": "Vĩnh Long - Tách thửa hoặc hợp thửa đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:48:00.207Z"
+        },
+        {
+          "index": 15,
+          "maThuTuc": "1.116174",
+          "tenThuTuc": "Vĩnh Long - Cấp đổi Giấy chứng nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:48:00.750Z"
+        },
+        {
+          "index": 16,
+          "maThuTuc": "1.116173",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với thửa đất có diện tích tăng thêm do thay đổi ranh giới so với Giấy chứng nhận đã cấp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:48:01.305Z"
+        },
+        {
+          "index": 17,
+          "maThuTuc": "1.116172",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động đối với trường hợp thành viên của hộ gia đình hoặc cá nhân đang sử dụng đất thành lập doanh nghiệp tư nhân và sử dụng đất vào hoạt động sản xuất kinh doanh của doanh nghiệp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:48:01.867Z"
+        },
+        {
+          "index": 18,
+          "maThuTuc": "1.116171",
+          "tenThuTuc": "Vĩnh Long - Xóa đăng ký cho thuê, cho thuê lại quyền sử dụng đất trong dự án xây dựng kinh doanh kết cấu hạ tầng",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:48:02.423Z"
+        },
+        {
+          "index": 19,
+          "maThuTuc": "1.11617",
+          "tenThuTuc": "Vĩnh Long - Đăng ký đất đai lần đầu đối với trường hợp được giao đất để quản lý",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:48:07.805Z"
+        },
+        {
+          "index": 20,
+          "maThuTuc": "1.116169",
+          "tenThuTuc": "Vĩnh Long - Thu hồi Giấy chứng nhận đã cấp không đúng quy định của pháp luật đất đai do người sử dụng đất, chủ sở hữu tài sản gắn liền với đất phát hiện và cấp lại Giấy chứng nhận sau khi thu hồi",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:48:08.358Z"
+        },
+        {
+          "index": 21,
+          "maThuTuc": "1.116168",
+          "tenThuTuc": "Vĩnh Long - Đính chính Giấy chứng nhận đã cấp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:48:08.906Z"
+        },
+        {
+          "index": 22,
+          "maThuTuc": "1.116167",
+          "tenThuTuc": "Vĩnh Long - Đăng ký đất đai, tài sản gắn liền với đất, cấp Giấy chứng nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất lần đầu đối với tổ chức đang sử dụng đất theo hình thức quy định tại Điều 119 và Điều 120 Luật Đất đai, người gốc Việt Nam định cư ở nước ngoài nhận thừa kế quyền sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:48:09.456Z"
+        },
+        {
+          "index": 23,
+          "maThuTuc": "1.116166",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với trường hợp chuyển nhượng dự án đầu tư có sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:48:10.011Z"
+        },
+        {
+          "index": 24,
+          "maThuTuc": "1.116165",
+          "tenThuTuc": "Vĩnh Long - Tổ chức kinh tế nhận chuyển nhượng, thuê quyền sử dụng đất, nhận góp vốn bằng quyền sử dụng đất để thực hiện dự án đầu tư",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:48:10.558Z"
+        },
+        {
+          "index": 25,
+          "maThuTuc": "1.116164",
+          "tenThuTuc": "Vĩnh Long - Sử dụng đất kết hợp đa mục đích, gia hạn phương án sử dụng đất kết hợp đa mục đích",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:48:11.110Z"
+        },
+        {
+          "index": 26,
+          "maThuTuc": "1.116163",
+          "tenThuTuc": "Vĩnh Long - Thẩm định, phê duyệt phương án sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:48:11.797Z"
+        },
+        {
+          "index": 27,
+          "maThuTuc": "1.116162",
+          "tenThuTuc": "Vĩnh Long - Chuyển mục đích sử dụng đất; chuyển hình thức sử dụng đất; gia hạn sử dụng đất khi hết thời hạn sử dụng đất; điều chỉnh thời hạn sử dụng đất của dự án đầu tư",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:48:12.351Z"
+        },
+        {
+          "index": 28,
+          "maThuTuc": "1.116161",
+          "tenThuTuc": "Vĩnh Long - Giao đất, cho thuê đất đối với trường hợp giao đất, cho thuê đất không đấu giá quyền sử dụng đất, không đấu thầu lựa chọn nhà đầu tư thực hiện dự án có sử dụng đất và trường hợp giao đất, cho thuê đất thông qua đấu thầu lựa chọn nhà đầu tư thực hiện dự án có sử dụng đất; giao đất, cho thuê đất đồng thời giao khu vực biển để thực hiện hoạt động lấn biển",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:48:12.916Z"
+        },
+        {
+          "index": 29,
+          "maThuTuc": "1.013979.H61",
+          "tenThuTuc": "Tặng cho quyền sử dụng đất cho Nhà nước hoặc cộng đồng dân cư hoặc mở rộng đường giao thông đối với trường hợp thửa đất chưa được cấp Giấy chứng nhận",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:48:13.468Z"
+        },
+        {
+          "index": 30,
+          "maThuTuc": "1.013967.H61",
+          "tenThuTuc": "Giải quyết tranh chấp đất đai thuộc thẩm quyền của Chủ tịch Ủy ban nhân dân cấp xã",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:48:14.013Z"
+        },
+        {
+          "index": 31,
+          "maThuTuc": "1.013952.H61",
+          "tenThuTuc": "Điều chỉnh quyết định giao đất, cho thuê đất, cho phép chuyển mục đích sử dụng đất do thay đổi căn cứ quyết định giao đất, cho thuê đất, cho phép chuyển mục đích sử dụng đất; điều chỉnh thời hạn sử dụng đất của dự án đầu tư.",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:48:14.569Z"
+        },
+        {
+          "index": 32,
+          "maThuTuc": "1.012812.H61",
+          "tenThuTuc": "Hòa giải tranh chấp đất đai",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:48:15.120Z"
+        },
+        {
+          "index": 33,
+          "maThuTuc": "1.012805.H61",
+          "tenThuTuc": "Giải quyết tranh chấp đất đai thuộc thẩm quyền của Chủ tịch Ủy ban nhân dân cấp tỉnh",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:48:15.670Z"
+        },
+        {
+          "index": 34,
+          "maThuTuc": "1.012786.H61",
+          "tenThuTuc": "Cấp lại Giấy chứng nhận do bị mất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:48:16.238Z"
+        },
+        {
+          "index": 35,
+          "maThuTuc": "1.012762",
+          "tenThuTuc": "1.012762",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "Tạo mới thủ tục thành công.",
+          "executedAt": "2026-10-30T13:48:16.785Z"
+        }
+      ]
+    },
+    {
+      "id": "ses_1793367929437",
+      "fileName": "30_10_danhsachthutuc.xls",
+      "startTime": "2026-10-30T13:45:29.437Z",
+      "endTime": "2026-10-30T13:45:51.073Z",
+      "total": 35,
+      "success": 35,
+      "failed": 0,
+      "skipped": 0,
+      "status": "completed",
+      "records": [
+        {
+          "index": 1,
+          "maThuTuc": "73115",
+          "tenThuTuc": "Công bố Danh mục khu đất dự kiến thực hiện dự án thí điểm thực hiện dự án nhà ở thương mại thông qua thỏa thuận về nhận quyền sử dụng đất hoặc đang có quyền sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"73115\" thành công.",
+          "executedAt": "2026-10-30T13:45:29.581Z"
+        },
+        {
+          "index": 2,
+          "maThuTuc": "124319",
+          "tenThuTuc": "Vĩnh Long - Giải quyết đối với trường hợp cá nhân, hộ gia đình đã được cấp Giấy chứng nhận một phần diện tích vào loại đất ở trước ngày 01 tháng 7 năm 2004, phần diện tích còn lại của thửa đất chưa được cấp Giấy chứng nhận",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124319\" thành công.",
+          "executedAt": "2026-10-30T13:45:30.210Z"
+        },
+        {
+          "index": 3,
+          "maThuTuc": "124402",
+          "tenThuTuc": "Vĩnh Long - Đăng ký tài sản gắn liền với thửa đất đã được cấp Giấy chứng nhận hoặc đăng ký thay đổi về tài sản gắn liền với đất so với nội dung đã đăng ký, gia hạn thời hạn sở hữu nhà ở của tổ chức nước ngoài, cá nhân nước ngoài theo quy định của pháp luật về nhà ở nội dung đã đăng ký",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124402\" thành công.",
+          "executedAt": "2026-10-30T13:45:30.848Z"
+        },
+        {
+          "index": 4,
+          "maThuTuc": "124320",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với trường hợp hộ gia đình, cá nhân đang sử dụng đất không đúng mục đích đã được Nhà nước công nhận quyền sử dụng đất trước ngày 01 tháng 7 năm 2014 - Vĩnh Long",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124320\" thành công.",
+          "executedAt": "2026-10-30T13:45:31.475Z"
+        },
+        {
+          "index": 5,
+          "maThuTuc": "124321",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động chuyển mục đích sử dụng đất không phải xin phép cơ quan nhà nước có thẩm quyền",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124321\" thành công.",
+          "executedAt": "2026-10-30T13:45:32.101Z"
+        },
+        {
+          "index": 6,
+          "maThuTuc": "124389",
+          "tenThuTuc": "Vĩnh Long - Xóa ghi nợ tiền sử dụng đất, lệ phí trước bạ trên Giấy chứng nhận đã cấp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124389\" thành công.",
+          "executedAt": "2026-10-30T13:45:32.730Z"
+        },
+        {
+          "index": 7,
+          "maThuTuc": "124339",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động đối với trường hợp thay đổi quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất theo thỏa thuận của các thành viên hộ gia đình hoặc của vợ và chồng; quyền sử dụng đất xây dựng công trình trên mặt đất phục vụ cho việc vận hành, khai thác sử dụng công trình ngầm, quyền sở hữu công trình ngầm; bán tài sản, điều chuyển, chuyển nhượng quyền sử dụng đất là tài sản công theo quy định của pháp luật về quản lý, sử dụng tài sản công; nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất theo kết quả giải quyết tranh chấp, khiếu nại, tố cáo về đất đai hoặc bản án, quyết định của Tòa án, quyết định thi hành án của cơ quan thi hành án đã được thi hành; quyết định hoặc phán quyết của Trọng tài thương mại Việt Nam về giải quyết tranh chấp giữa các bên phát sinh từ hoạt động thương mại liên quan đến đất đai; nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất do xử lý tài sản thế chấp là quyền sử dụng đất, tài sản gắn liền với đất đã được đăng ký, bao gồm cả xử lý khoản nợ có nguồn gốc từ khoản nợ xấu của tổ chức tín dụng, chi nhánh ngân hàng nước ngoài",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124339\" thành công.",
+          "executedAt": "2026-10-30T13:45:33.372Z"
+        },
+        {
+          "index": 8,
+          "maThuTuc": "124360",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động thay đổi quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất do chia, tách, hợp nhất, sáp nhập tổ chức hoặc chuyển đổi mô hình tổ chức, chuyển đổi loại hình doanh nghiệp theo quy định của pháp luật về doanh nghiệp; điều chỉnh quy hoạch xây dựng chi tiết; cấp Giấy chứng nhận cho từng thửa đất theo quy hoạch xây dựng chi tiết cho chủ đầu tư dự án có nhu cầu",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124360\" thành công.",
+          "executedAt": "2026-10-30T13:45:34.002Z"
+        },
+        {
+          "index": 9,
+          "maThuTuc": "124362",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động đối với trường hợp đổi tên hoặc thay đổi thông tin về người sử dụng đất, chủ sở hữu tài sản gắn liền với đất hoặc thay đổi số hiệu hoặc địa chỉ của thửa đất; thay đổi hạn chế quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất hoặc có thay đổi quyền đối với thửa đất liền kề; giảm diện tích thửa đất do sạt lở tự nhiên",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124362\" thành công.",
+          "executedAt": "2026-10-30T13:45:34.632Z"
+        },
+        {
+          "index": 10,
+          "maThuTuc": "124322",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất trong các trường hợp chuyển đổi quyền sử dụng đất nông nghiệp mà không theo phương án dồn điền, đổi thửa; chuyển nhượng, thừa kế, tặng cho quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất, góp vốn bằng quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất; cho thuê, cho thuê lại quyền sử dụng đất trong dự án xây dựng kinh doanh kết cấu hạ tầng; bán hoặc tặng cho hoặc để thừa kế hoặc góp vốn bằng tài sản gắn liền với đất thuê của Nhà nước theo hình thức thuê đất trả tiền hàng năm hoặc trường hợp chuyển nhượng quyền khai thác khoáng sản theo quy định của pháp luật về địa chất và khoáng sản",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124322\" thành công.",
+          "executedAt": "2026-10-30T13:45:35.261Z"
+        },
+        {
+          "index": 11,
+          "maThuTuc": "124379",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất cho người nhận chuyển nhượng quyền sử dụng đất, quyền sở hữu nhà ở, công trình xây dựng trong dự án bất động sản",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124379\" thành công.",
+          "executedAt": "2026-10-30T13:45:35.890Z"
+        },
+        {
+          "index": 12,
+          "maThuTuc": "124380",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với trường hợp đã chuyển quyền sử dụng đất trước ngày 01 tháng 8 năm 2024 mà bên chuyển quyền đã được cấp Giấy chứng nhận nhưng chưa thực hiện thủ tục chuyển quyền theo quy định",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124380\" thành công.",
+          "executedAt": "2026-10-30T13:45:36.520Z"
+        },
+        {
+          "index": 13,
+          "maThuTuc": "124420",
+          "tenThuTuc": "Vĩnh Long - Cấp lại Giấy chứng nhận do bị mất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124420\" thành công.",
+          "executedAt": "2026-10-30T13:45:37.153Z"
+        },
+        {
+          "index": 14,
+          "maThuTuc": "124382",
+          "tenThuTuc": "Vĩnh Long - Tách thửa hoặc hợp thửa đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124382\" thành công.",
+          "executedAt": "2026-10-30T13:45:37.793Z"
+        },
+        {
+          "index": 15,
+          "maThuTuc": "124390",
+          "tenThuTuc": "Vĩnh Long - Cấp đổi Giấy chứng nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124390\" thành công.",
+          "executedAt": "2026-10-30T13:45:38.424Z"
+        },
+        {
+          "index": 16,
+          "maThuTuc": "124365",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với thửa đất có diện tích tăng thêm do thay đổi ranh giới so với Giấy chứng nhận đã cấp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124365\" thành công.",
+          "executedAt": "2026-10-30T13:45:39.063Z"
+        },
+        {
+          "index": 17,
+          "maThuTuc": "124421",
+          "tenThuTuc": "Vĩnh Long - Đăng ký biến động đối với trường hợp thành viên của hộ gia đình hoặc cá nhân đang sử dụng đất thành lập doanh nghiệp tư nhân và sử dụng đất vào hoạt động sản xuất kinh doanh của doanh nghiệp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124421\" thành công.",
+          "executedAt": "2026-10-30T13:45:39.693Z"
+        },
+        {
+          "index": 18,
+          "maThuTuc": "124367",
+          "tenThuTuc": "Vĩnh Long - Xóa đăng ký cho thuê, cho thuê lại quyền sử dụng đất trong dự án xây dựng kinh doanh kết cấu hạ tầng",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124367\" thành công.",
+          "executedAt": "2026-10-30T13:45:40.321Z"
+        },
+        {
+          "index": 19,
+          "maThuTuc": "124400",
+          "tenThuTuc": "Vĩnh Long - Đăng ký đất đai lần đầu đối với trường hợp được giao đất để quản lý",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124400\" thành công.",
+          "executedAt": "2026-10-30T13:45:40.952Z"
+        },
+        {
+          "index": 20,
+          "maThuTuc": "124363",
+          "tenThuTuc": "Vĩnh Long - Thu hồi Giấy chứng nhận đã cấp không đúng quy định của pháp luật đất đai do người sử dụng đất, chủ sở hữu tài sản gắn liền với đất phát hiện và cấp lại Giấy chứng nhận sau khi thu hồi",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124363\" thành công.",
+          "executedAt": "2026-10-30T13:45:41.593Z"
+        },
+        {
+          "index": 21,
+          "maThuTuc": "124422",
+          "tenThuTuc": "Vĩnh Long - Đính chính Giấy chứng nhận đã cấp",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124422\" thành công.",
+          "executedAt": "2026-10-30T13:45:42.218Z"
+        },
+        {
+          "index": 22,
+          "maThuTuc": "124401",
+          "tenThuTuc": "Vĩnh Long - Đăng ký đất đai, tài sản gắn liền với đất, cấp Giấy chứng nhận quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất lần đầu đối với tổ chức đang sử dụng đất theo hình thức quy định tại Điều 119 và Điều 120 Luật Đất đai, người gốc Việt Nam định cư ở nước ngoài nhận thừa kế quyền sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124401\" thành công.",
+          "executedAt": "2026-10-30T13:45:42.845Z"
+        },
+        {
+          "index": 23,
+          "maThuTuc": "124403",
+          "tenThuTuc": "Vĩnh Long - Đăng ký, cấp Giấy chứng nhận đối với trường hợp chuyển nhượng dự án đầu tư có sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124403\" thành công.",
+          "executedAt": "2026-10-30T13:45:43.473Z"
+        },
+        {
+          "index": 24,
+          "maThuTuc": "124386",
+          "tenThuTuc": "Vĩnh Long - Tổ chức kinh tế nhận chuyển nhượng, thuê quyền sử dụng đất, nhận góp vốn bằng quyền sử dụng đất để thực hiện dự án đầu tư",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124386\" thành công.",
+          "executedAt": "2026-10-30T13:45:44.111Z"
+        },
+        {
+          "index": 25,
+          "maThuTuc": "124383",
+          "tenThuTuc": "Vĩnh Long - Sử dụng đất kết hợp đa mục đích, gia hạn phương án sử dụng đất kết hợp đa mục đích",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124383\" thành công.",
+          "executedAt": "2026-10-30T13:45:44.737Z"
+        },
+        {
+          "index": 26,
+          "maThuTuc": "124399",
+          "tenThuTuc": "Vĩnh Long - Thẩm định, phê duyệt phương án sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124399\" thành công.",
+          "executedAt": "2026-10-30T13:45:45.374Z"
+        },
+        {
+          "index": 27,
+          "maThuTuc": "124385",
+          "tenThuTuc": "Vĩnh Long - Chuyển mục đích sử dụng đất; chuyển hình thức sử dụng đất; gia hạn sử dụng đất khi hết thời hạn sử dụng đất; điều chỉnh thời hạn sử dụng đất của dự án đầu tư",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124385\" thành công.",
+          "executedAt": "2026-10-30T13:45:45.997Z"
+        },
+        {
+          "index": 28,
+          "maThuTuc": "124366",
+          "tenThuTuc": "Vĩnh Long - Giao đất, cho thuê đất đối với trường hợp giao đất, cho thuê đất không đấu giá quyền sử dụng đất, không đấu thầu lựa chọn nhà đầu tư thực hiện dự án có sử dụng đất và trường hợp giao đất, cho thuê đất thông qua đấu thầu lựa chọn nhà đầu tư thực hiện dự án có sử dụng đất; giao đất, cho thuê đất đồng thời giao khu vực biển để thực hiện hoạt động lấn biển",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124366\" thành công.",
+          "executedAt": "2026-10-30T13:45:46.624Z"
+        },
+        {
+          "index": 29,
+          "maThuTuc": "70781",
+          "tenThuTuc": "Tặng cho quyền sử dụng đất cho Nhà nước hoặc cộng đồng dân cư hoặc mở rộng đường giao thông đối với trường hợp thửa đất chưa được cấp Giấy chứng nhận",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"70781\" thành công.",
+          "executedAt": "2026-10-30T13:45:47.263Z"
+        },
+        {
+          "index": 30,
+          "maThuTuc": "70773",
+          "tenThuTuc": "Giải quyết tranh chấp đất đai thuộc thẩm quyền của Chủ tịch Ủy ban nhân dân cấp xã",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"70773\" thành công.",
+          "executedAt": "2026-10-30T13:45:47.887Z"
+        },
+        {
+          "index": 31,
+          "maThuTuc": "70737",
+          "tenThuTuc": "Điều chỉnh quyết định giao đất, cho thuê đất, cho phép chuyển mục đích sử dụng đất do thay đổi căn cứ quyết định giao đất, cho thuê đất, cho phép chuyển mục đích sử dụng đất; điều chỉnh thời hạn sử dụng đất của dự án đầu tư.",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"70737\" thành công.",
+          "executedAt": "2026-10-30T13:45:48.528Z"
+        },
+        {
+          "index": 32,
+          "maThuTuc": "69752",
+          "tenThuTuc": "Hòa giải tranh chấp đất đai",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"69752\" thành công.",
+          "executedAt": "2026-10-30T13:45:49.155Z"
+        },
+        {
+          "index": 33,
+          "maThuTuc": "69573",
+          "tenThuTuc": "Giải quyết tranh chấp đất đai thuộc thẩm quyền của Chủ tịch Ủy ban nhân dân cấp tỉnh",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"69573\" thành công.",
+          "executedAt": "2026-10-30T13:45:49.795Z"
+        },
+        {
+          "index": 34,
+          "maThuTuc": "69735",
+          "tenThuTuc": "Cấp lại Giấy chứng nhận do bị mất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"69735\" thành công.",
+          "executedAt": "2026-10-30T13:45:50.434Z"
+        },
+        {
+          "index": 35,
+          "maThuTuc": "97193",
+          "tenThuTuc": "1.012762",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"97193\" thành công.",
+          "executedAt": "2026-10-30T13:45:51.073Z"
+        }
+      ]
+    },
+    {
+      "id": "ses_1793367285353",
+      "fileName": "Test_Batch_3",
+      "startTime": "2026-10-30T13:34:45.353Z",
+      "endTime": "2026-10-30T13:34:45.962Z",
+      "total": 3,
+      "success": 3,
+      "failed": 0,
+      "skipped": 0,
+      "status": "completed",
+      "records": [
+        {
+          "index": 1,
+          "maThuTuc": "73115",
+          "tenThuTuc": "Công bố Danh mục khu đất dự kiến thực hiện dự án thí điểm thực hiện dự án nhà ở thương mại thông qua thỏa thuận về nhận quyền sử dụng đất hoặc đang có quyền sử dụng đất",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"73115\" thành công.",
+          "executedAt": "2026-10-30T13:34:45.495Z"
+        },
+        {
+          "index": 2,
+          "maThuTuc": "124319",
+          "tenThuTuc": "Vĩnh Long - Giải quyết đối với trường hợp cá nhân, hộ gia đình đã được cấp Giấy chứng nhận một phần diện tích vào loại đất ở trước ngày 01 tháng 7 năm 2004, phần diện tích còn lại của thửa đất chưa được cấp Giấy chứng nhận",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124319\" thành công.",
+          "executedAt": "2026-10-30T13:34:45.727Z"
+        },
+        {
+          "index": 3,
+          "maThuTuc": "124402",
+          "tenThuTuc": "Vĩnh Long - Đăng ký tài sản gắn liền với thửa đất đã được cấp Giấy chứng nhận hoặc đăng ký thay đổi về tài sản gắn liền với đất so với nội dung đã đăng ký, gia hạn thời hạn sở hữu nhà ở của tổ chức nước ngoài, cá nhân nước ngoài theo quy định của pháp luật về nhà ở nội dung đã đăng ký",
+          "status": "THÀNH CÔNG",
+          "httpStatus": 200,
+          "message": "[MOCK] Thêm mới thủ tục \"124402\" thành công.",
+          "executedAt": "2026-10-30T13:34:45.961Z"
+        }
+      ]
+    }
+  ]
+}

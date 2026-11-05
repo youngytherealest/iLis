@@ -1,0 +1,26 @@
+export const CONFIG = {
+  PORT: process.env.PORT || 5000,
+  HOST: '127.0.0.1',
+  ILIS_GATEWAY_URL: 'https://ilis-gateway-c4.vnpt.vn',
+  ILIS_ADD_PROCEDURE_PATH: '/lpm/api/ThuTucManage/Add',
+  ILIS_UPDATE_PROCEDURE_FILE_PATH: '/lpm/api/QuyTrinhManage/UpdateFileQuyTrinh',
+  ILIS_DEPLOY_PROCESS_PATH: '/lpm/api/Activiti/DeployProcess',
+  ILIS_SEARCH_PROCEDURE_STEPS_PATH: '/lpm/api/Buoc/Search',
+  ILIS_CONFIGURE_PROCEDURE_STEPS_PATH: '/lpm/api/Buoc/CauHinhBuocThuocQuyTrinh',
+  ILIS_GET_ALL_PROCEDURES_BY_DOMAIN_PATH: '/lpm/api/ThuTuc/GetAllByLinhVucId',
+  ILIS_GET_DVC_PROCEDURES_PATH: '/lpm/api/DVCDanhMuc/GetDanhMucThuTucTheoLinhVucDvcId',
+  ILIS_GET_MAPPING_DATA_TYPES_PATH: '/lpm/api/DvcAnhXaDuLieu/GetDsLoaiDuLieuCanAnhXa',
+  ILIS_GET_MAPPED_DVC_DOMAINS_PATH: '/lpm/api/DvcAnhXaDuLieu/GetDsLinhVucDvcDaAnhXaLpm',
+  ILIS_GET_DVC_DEPARTMENTS_PATH: '/lpm/api/DVCDanhMuc/GetDanhMucPhongBanHierrachy',
+  ILIS_GET_LPM_USERS_PATH: '/lpm/api/Qtht/GetListUser',
+  ILIS_GET_DVC_MAPPING_BY_TYPE_PATH: '/lpm/api/MapDanhMucDvc/GetByLoaiDanhMuc',
+  ILIS_GET_DVC_USERS_BY_DEPARTMENT_PATH: '/lpm/api/DVCDanhMuc/LayDanhSachNguoiXuLyTheoPhongBan',
+  ILIS_GET_LPM_PROCESSES_BY_PROCEDURE_PATH: '/lpm/api/QuyTrinh/GetAllActiveByThuTucId',
+  ILIS_GET_DVHC_TREE_PATH: '/lpm/api/Dvhc/GetCayDvhcTheoQuyenNguoiDung',
+  ILIS_GET_DVC_PROCESSES_BY_PROCEDURE_PATH: '/lpm/api/DVCDanhMuc/GetDanhMucQuyTrinhTheoThuTucDvcId',
+  ILIS_ADD_DVC_MAPPING_PATH: '/lpm/api/MapDanhMucDvc/Add',
+  ILIS_EDIT_DVC_MAPPING_PATH: '/lpm/api/MapDanhMucDvc/Edit',
+  DEFAULT_DELAY_MS: 500,
+  MANDATORY_MUC_DO_THU_TUC: 3, // Bắt buộc: TẤT CẢ THỦ TỤC ĐỀU LÀ MỨC ĐỘ 3 (Dịch vụ công trực tuyến một phần)
+  SAMPLE_DOMAIN_ID: '161A6A0F284D403C9EF8E1F612CCE8B5'
+};
