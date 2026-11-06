@@ -20,15 +20,18 @@ import {
 } from './db.js';
 import { parseExcel, parseProcedureLevels } from './excelParser.js';
 import { parseProcedureTimingWorkbook } from './procedureTimingParser.js';
+import { readChecklistWorkbook } from './checklistParser.js';
 import { applyMapping } from './mappingEngine.js';
 import {
   sendProcedureToIlis,
   updateProcedureFile,
   deployProcedure,
   searchProcedureSteps,
+  getStepConfigurations,
   configureProcedureSteps,
   getAllLpmProcedures,
   getAllDvcProcedures,
+  getActiveProcedureStatuses,
   getDvcMappingDataTypes,
   getMappedDvcDomains,
   getDvcDepartments,
@@ -305,6 +308,47 @@ app.post('/api/procedure-timings/search', async (req, res) => {
   } catch (err) {
     console.error('Error searching procedure steps:', err);
     res.status(500).json({ error: `Lỗi tải bước quy trình: ${err.message}` });
+  }
+});
+
+app.get('/api/procedure-timings/step-configurations/:idBuoc', async (req, res) => {
+  try {
+    const { idBuoc } = req.params;
+    if (!idBuoc) return res.status(400).json({ error: 'Thiếu idBuoc.' });
+    const settings = getSettings();
+    const result = await getStepConfigurations(idBuoc, {
+      gatewayUrl: settings.gatewayUrl,
+      endpointPath: CONFIG.ILIS_GET_STEP_CONFIGURATIONS_PATH
+    });
+    const responseStatus = result.httpStatus > 0 ? result.httpStatus : result.success ? 200 : 502;
+    res.status(responseStatus).json(result);
+  } catch (err) {
+    console.error('Error loading step configurations:', err);
+    res.status(500).json({ error: `Lỗi tải cấu hình checklist của bước: ${err.message}` });
+  }
+});
+
+app.get('/api/procedure-timings/statuses', async (req, res) => {
+  try {
+    const settings = getSettings();
+    const result = await getActiveProcedureStatuses({
+      gatewayUrl: settings.gatewayUrl,
+      endpointPath: CONFIG.ILIS_GET_ACTIVE_PROCEDURE_STATUSES_PATH
+    });
+    const responseStatus = result.httpStatus > 0 ? result.httpStatus : result.success ? 200 : 502;
+    res.status(responseStatus).json(result);
+  } catch (err) {
+    console.error('Error loading active procedure statuses:', err);
+    res.status(500).json({ error: `Lỗi tải trạng thái hồ sơ: ${err.message}` });
+  }
+});
+
+app.get('/api/procedure-timings/checklists', (req, res) => {
+  try {
+    res.json({ success: true, ...readChecklistWorkbook(CONFIG.CHECKLIST_WORKBOOK_PATH) });
+  } catch (err) {
+    console.error('Error loading checklist workbook:', err);
+    res.status(500).json({ success: false, message: err.message, catalog: [], mappings: [] });
   }
 });
 

@@ -19,6 +19,7 @@ import {
   ProcedureTimingParseResponse,
   ProcedureTimingRow,
   ProcedureTimingSheet,
+  ProcedureStatusOption,
   TokenStatus
 } from '../types';
 
@@ -172,7 +173,13 @@ function compareStepOrder(left: ProcedureStep, right: ProcedureStep) {
   return 0;
 }
 
-function applyWorkflowStatuses(steps: ProcedureStep[]) {
+function findStatusId(statuses: ProcedureStatusOption[], code: string, fallback: number) {
+  const normalizedCode = code.toLocaleUpperCase('vi-VN');
+  const status = statuses.find(item => String(item.maTrangThaiHoSo || '').toLocaleUpperCase('vi-VN') === normalizedCode);
+  return status?.id || fallback;
+}
+
+function applyWorkflowStatuses(steps: ProcedureStep[], statuses: ProcedureStatusOption[]) {
   const orderedIndexes = steps
     .map((step, index) => ({ step, index }))
     .sort((left, right) => compareStepOrder(left.step, right.step) || left.index - right.index)
@@ -181,12 +188,12 @@ function applyWorkflowStatuses(steps: ProcedureStep[]) {
 
   orderedIndexes.forEach((originalIndex, orderedIndex) => {
     const statusId = steps.length === 1
-      ? 1
+      ? findStatusId(statuses, 'TIEP_NHAN_HO_SO', 1)
       : orderedIndex === 0
-        ? 1
+        ? findStatusId(statuses, 'TIEP_NHAN_HO_SO', 1)
         : orderedIndex === orderedIndexes.length - 1
-          ? 4
-          : 3;
+          ? findStatusId(statuses, 'TRA_KET_QUA', 4)
+          : findStatusId(statuses, 'XU_LY', 3);
     statusByIndex.set(originalIndex, statusId);
   });
 
@@ -196,11 +203,13 @@ function applyWorkflowStatuses(steps: ProcedureStep[]) {
   }));
 }
 
-function getWorkflowStatusId(steps: ProcedureStep[], stepId: string) {
-  return applyWorkflowStatuses(steps).find(step => step.id === stepId)?.idTrangThaiHoSo || null;
+function getWorkflowStatusId(steps: ProcedureStep[], stepId: string, statuses: ProcedureStatusOption[]) {
+  return applyWorkflowStatuses(steps, statuses).find(step => step.id === stepId)?.idTrangThaiHoSo || null;
 }
 
-function getWorkflowStatusLabel(statusId: number | null) {
+function getWorkflowStatusLabel(statusId: number | null, statuses: ProcedureStatusOption[]) {
+  const status = statuses.find(item => item.id === statusId);
+  if (status) return status.tenTrangThaiHoSo;
   if (statusId === 1) return 'Tiếp nhận hồ sơ';
   if (statusId === 4) return 'Trả kết quả';
   if (statusId === 3) return 'Xử lý hồ sơ';
@@ -278,12 +287,22 @@ export const ProcedureTimingView: React.FC<ProcedureTimingViewProps> = ({
   const [error, setError] = useState('');
   const [stepLoadIssue, setStepLoadIssue] = useState<StepLoadIssue | null>(null);
   const [pendingUpdate, setPendingUpdate] = useState<PendingUpdate | null>(null);
+  const [workflowStatuses, setWorkflowStatuses] = useState<ProcedureStatusOption[]>([]);
 
   useEffect(() => {
     api.getProcedureCatalog()
       .then(response => setCatalog(response.items || []))
       .catch(err => setError(err?.response?.data?.error || err?.message || 'Không tải được danh sách quy trình.'));
   }, []);
+
+  useEffect(() => {
+    if (!tokenStatus?.hasToken) return;
+    api.getProcedureStatuses()
+      .then(response => {
+        if (response.success) setWorkflowStatuses(response.items || []);
+        else setError(response.message || 'Khong tai duoc danh sach trang thai ho so.');
+      });
+  }, [tokenStatus?.hasToken]);
 
   useEffect(() => {
     if (catalog.length === 0 || sheets.length === 0) return;
@@ -448,6 +467,10 @@ export const ProcedureTimingView: React.FC<ProcedureTimingViewProps> = ({
       return;
     }
 
+    if (workflowStatuses.length === 0) {
+      setError('Chua tai duoc danh sach trang thai ho so tu TrangThaiHoSo/GetAllActive.');
+      return;
+    }
     const payloadByProcedure = new Map<string, ProcedureStep[]>();
     const assignmentKeys = new Set<string>();
     const statusStepsByProcedure = new Map<string, ProcedureStep[]>();
@@ -466,7 +489,7 @@ export const ProcedureTimingView: React.FC<ProcedureTimingViewProps> = ({
       }
       assignmentKeys.add(assignmentKey);
 
-      const statusSteps = statusStepsByProcedure.get(row.procedureId) || applyWorkflowStatuses(steps);
+      const statusSteps = statusStepsByProcedure.get(row.procedureId) || applyWorkflowStatuses(steps, workflowStatuses);
       statusStepsByProcedure.set(row.procedureId, statusSteps);
       const sourceStep = statusSteps.find(item => item.id === row.selectedStepId);
       if (!sourceStep) continue;
@@ -810,7 +833,7 @@ export const ProcedureTimingView: React.FC<ProcedureTimingViewProps> = ({
                 {mappingRows.map(row => {
                   const selectedStep = row.candidates.find(step => step.id === row.selectedStepId);
                   const selectedStepStatusId = selectedStep
-                    ? getWorkflowStatusId(stepsByProcedureId[row.procedureId] || [], selectedStep.id)
+                    ? getWorkflowStatusId(stepsByProcedureId[row.procedureId] || [], selectedStep.id, workflowStatuses)
                     : null;
                   const result = updateResults[row.procedureId];
                   return (
@@ -839,7 +862,7 @@ export const ProcedureTimingView: React.FC<ProcedureTimingViewProps> = ({
                         {selectedStepStatusId !== null && (
                           <div className="mt-2 inline-flex items-center gap-2 rounded-md border border-cyan-500/30 bg-cyan-500/10 px-2 py-1 text-[10px] text-cyan-200">
                             <span className="font-semibold">idTrangThaiHoSo = {selectedStepStatusId}</span>
-                            <span>• {getWorkflowStatusLabel(selectedStepStatusId)}</span>
+                            <span>• {getWorkflowStatusLabel(selectedStepStatusId, workflowStatuses)}</span>
                           </div>
                         )}
                       </td>

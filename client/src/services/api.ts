@@ -16,7 +16,10 @@ import {
   ProcedureDeployResult,
   ProcedureTimingParseResponse,
   ProcedureStepSearchResult,
+  ProcedureStepConfigurationResult,
   ProcedureStepUpdateResult,
+  ProcedureStatusOption,
+  ChecklistWorkbookResponse,
   DvcMappingApiResult,
   BpmnStepMappingCheckResponse,
   BpmnStepMappingResult
@@ -167,6 +170,55 @@ export const api = {
         data: responseData?.data ?? responseData ?? null,
         items: [],
         pagination: responseData?.pagination
+      };
+    }
+  },
+
+  async getStepConfigurations(idBuoc: string): Promise<ProcedureStepConfigurationResult> {
+    try {
+      const res = await client.get(`/procedure-timings/step-configurations/${encodeURIComponent(idBuoc)}`, {
+        timeout: 75000
+      });
+      return res.data;
+    } catch (err: any) {
+      const responseData = err?.response?.data;
+      return {
+        success: false,
+        httpStatus: responseData?.httpStatus || err?.response?.status || 0,
+        type: responseData?.type || 'API_ERROR',
+        message: responseData?.message || responseData?.error || err?.message || 'KhÃ´ng táº£i Ä‘Æ°á»£c cáº¥u hÃ¬nh checklist cá»§a bÆ°á»›c.',
+        data: responseData?.data ?? responseData ?? null,
+        items: []
+      };
+    }
+  },
+
+  async getProcedureStatuses(): Promise<{ success: boolean; httpStatus: number; message: string; items: ProcedureStatusOption[] }> {
+    try {
+      const res = await client.get('/procedure-timings/statuses', { timeout: 75000 });
+      return res.data;
+    } catch (err: any) {
+      const responseData = err?.response?.data;
+      return {
+        success: false,
+        httpStatus: responseData?.httpStatus || err?.response?.status || 0,
+        message: responseData?.message || responseData?.error || err?.message || 'Không tải được trạng thái hồ sơ.',
+        items: []
+      };
+    }
+  },
+
+  async getProcedureChecklists(): Promise<ChecklistWorkbookResponse> {
+    try {
+      const res = await client.get('/procedure-timings/checklists', { timeout: 75000 });
+      return res.data;
+    } catch (err: any) {
+      const responseData = err?.response?.data;
+      return {
+        success: false,
+        message: responseData?.message || responseData?.error || err?.message || 'KhÃ´ng táº£i Ä‘Æ°á»£c quy Æ°á»›c checklist.',
+        catalog: [],
+        mappings: []
       };
     }
   },

@@ -206,12 +206,48 @@ export interface ProcedureStepSearchResult {
   };
 }
 
+export interface ProcedureStepConfigurationResult {
+  success: boolean;
+  httpStatus: number;
+  type: string;
+  message: string;
+  data?: any;
+  items: any[];
+}
+
 export interface ProcedureStepUpdateResult {
   success: boolean;
   httpStatus: number;
   type: string;
   message: string;
   data?: any;
+}
+
+export interface ProcedureStatusOption {
+  id: number;
+  maTrangThaiHoSo: string;
+  tenTrangThaiHoSo: string;
+  [key: string]: any;
+}
+
+export interface ChecklistCatalogItem {
+  idCauHinh: number;
+  tenCauHinh: string;
+  tenCauHinhNgan: string;
+}
+
+export interface ChecklistStepMapping {
+  tenBuoc: string;
+  normalizedTenBuoc: string;
+  checklistIds: number[];
+}
+
+export interface ChecklistWorkbookResponse {
+  success: boolean;
+  fileName?: string;
+  message?: string;
+  catalog: ChecklistCatalogItem[];
+  mappings: ChecklistStepMapping[];
 }
 
 export interface BpmnStepMappingProcess {

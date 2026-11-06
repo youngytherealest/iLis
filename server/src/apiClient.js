@@ -437,6 +437,17 @@ export async function searchProcedureSteps(idQuyTrinh, options = {}) {
   }
 }
 
+/** Gets the complete checklist/configuration catalog for one Buoc. */
+export async function getStepConfigurations(idBuoc, options = {}) {
+  const basePath = options.endpointPath || CONFIG.ILIS_GET_STEP_CONFIGURATIONS_PATH;
+  const endpointPath = `${basePath.replace(/\/$/, '')}/${encodeURIComponent(String(idBuoc || ''))}`;
+  return getProcedureList(
+    endpointPath,
+    {},
+    { ...options, endpointPath }
+  );
+}
+
 /** Deploys/applies one workflow process in Activiti. */
 export async function deployProcedure(idQuyTrinh, options = {}) {
   const {
@@ -628,6 +639,15 @@ export async function getAllDvcProcedures(linhVucDvcId, keywordSearch = '', opti
       linhVucDvcId: String(linhVucDvcId || ''),
       keywordSearch: String(keywordSearch || '')
     },
+    options
+  );
+}
+
+/** Gets the active hồ sơ statuses used by Buoc/CauHinhBuocThuocQuyTrinh. */
+export async function getActiveProcedureStatuses(options = {}) {
+  return getProcedureList(
+    CONFIG.ILIS_GET_ACTIVE_PROCEDURE_STATUSES_PATH,
+    {},
     options
   );
 }
