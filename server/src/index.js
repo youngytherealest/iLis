@@ -43,6 +43,7 @@ import {
 } from './apiClient.js';
 import { importEngine } from './importEngine.js';
 import { generateExportExcel } from './exportService.js';
+import { checkBpmnStepMappings, mapOneBpmnProcess } from './bpmnStepMapper.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -350,6 +351,31 @@ app.post('/api/procedure-timings/update', async (req, res) => {
   }
 });
 
+// --- BPMN STEP MAPPING (integrated from the standalone map-bước tool) ---
+app.post('/api/bpmn-step-mapping/check', async (req, res) => {
+  try {
+    const result = await checkBpmnStepMappings();
+    res.json(result);
+  } catch (err) {
+    console.error('Error checking BPMN step mappings:', err);
+    const status = err.status === 401 || err.status === 403 ? err.status : 500;
+    res.status(status).json({ error: `Lỗi kiểm tra mapping bước BPMN: ${err.message}` });
+  }
+});
+
+app.post('/api/bpmn-step-mapping/map-one', async (req, res) => {
+  try {
+    const { runId, processId, dryRun } = req.body;
+    if (!runId || !processId) return res.status(400).json({ error: 'Thiếu runId hoặc processId.' });
+    const result = await mapOneBpmnProcess({ runId, processId, dryRun: Boolean(dryRun) });
+    res.json(result);
+  } catch (err) {
+    console.error('Error mapping BPMN steps:', err);
+    const status = err.status === 401 || err.status === 403 ? err.status : 500;
+    res.status(status).json({ error: `Lỗi mapping bước BPMN: ${err.message}`, message: err.message });
+  }
+});
+
 // --- DVC <-> LPM PROCEDURE MAPPING ---
 app.get('/api/dvc-mapping/data-types', async (req, res) => {
   try {
@@ -573,6 +599,13 @@ app.post('/api/dvc-mapping/edit', async (req, res) => {
       gatewayUrl: settings.gatewayUrl,
       endpointPath: CONFIG.ILIS_EDIT_DVC_MAPPING_PATH
     });
+    if (!result.success) {
+      console.error('[DVC mapping edit] upstream rejection', {
+        status: result.httpStatus,
+        request: payload,
+        response: result.data
+      });
+    }
     const responseStatus = result.httpStatus > 0 ? result.httpStatus : result.success ? 200 : 502;
     res.status(responseStatus).json(result);
   } catch (err) {

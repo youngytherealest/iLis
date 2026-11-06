@@ -214,6 +214,51 @@ export interface ProcedureStepUpdateResult {
   data?: any;
 }
 
+export interface BpmnStepMappingProcess {
+  id: string;
+  maQuyTrinh: string;
+  tenQuyTrinh: string;
+  tenTrangThai: string;
+  isActive: boolean;
+  fileStatus: string;
+  validationMessage: string;
+  taskCount: number;
+  dvcStatus: 'FOUND' | 'NOT_FOUND';
+  idQuyTrinhDvc: string;
+  idThuTucDvc: string;
+  eligible: boolean;
+  mapStatus: string;
+  result?: {
+    status: string;
+    message: string;
+    mappingCount?: number;
+  };
+}
+
+export interface BpmnStepMappingCheckResponse {
+  runId: string;
+  processes: BpmnStepMappingProcess[];
+  summary: {
+    total: number;
+    active: number;
+    eligible: number;
+    validBpmn: number;
+    dvcMatched: number;
+    noFile: number;
+    catalogCount: number;
+    overrideCount: number;
+    configFile: string;
+  };
+}
+
+export interface BpmnStepMappingResult {
+  status: string;
+  message: string;
+  mappingCount?: number;
+  unmatched?: Array<{ idLpm: string; ten: string }>;
+  ambiguous?: Array<{ idLpm: string; ten: string; candidates: string[] }>;
+}
+
 export interface LpmProcedureItem {
   id: string;
   maThuTuc: string;

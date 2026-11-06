@@ -17,7 +17,9 @@ import {
   ProcedureTimingParseResponse,
   ProcedureStepSearchResult,
   ProcedureStepUpdateResult,
-  DvcMappingApiResult
+  DvcMappingApiResult,
+  BpmnStepMappingCheckResponse,
+  BpmnStepMappingResult
 } from '../types';
 
 const client = axios.create({
@@ -183,6 +185,25 @@ export const api = {
         type: responseData?.type || 'API_ERROR',
         message: responseData?.message || responseData?.error || err?.message || 'Không cập nhật được thời gian bước.',
         data: responseData?.data ?? responseData ?? null
+      };
+    }
+  },
+
+  // Integrated BPMN step mapping tool
+  async checkBpmnStepMappings(): Promise<BpmnStepMappingCheckResponse> {
+    const res = await client.post('/bpmn-step-mapping/check', {}, { timeout: 120000 });
+    return res.data;
+  },
+
+  async mapOneBpmnProcess(runId: string, processId: string, dryRun = false): Promise<BpmnStepMappingResult> {
+    try {
+      const res = await client.post('/bpmn-step-mapping/map-one', { runId, processId, dryRun }, { timeout: 120000 });
+      return res.data;
+    } catch (err: any) {
+      const responseData = err?.response?.data;
+      return {
+        status: 'ERROR',
+        message: responseData?.message || responseData?.error || err?.message || 'Không mapping được bước BPMN.'
       };
     }
   },

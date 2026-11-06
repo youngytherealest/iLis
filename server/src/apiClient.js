@@ -304,15 +304,23 @@ function normalizeApiResult(response, fallbackSuccessMessage, fallbackErrorMessa
     ? body.isError === true || body.isSuccess === false || body.success === false
     : false;
   const success = response.status >= 200 && response.status < 300 && !bodyError;
+  const detail = body && typeof body === 'object' && body.chiTietLoi && typeof body.chiTietLoi === 'object'
+    ? body.chiTietLoi
+    : null;
+  const detailMessage = detail?.message || detail?.maLoi || (detail ? JSON.stringify(detail) : '');
   const message = body && typeof body === 'object'
-    ? body.message || body.error || body.errorMessage || (body.errors ? JSON.stringify(body.errors) : '')
+    ? body.message || body.error || body.errorMessage || (body.errors ? JSON.stringify(body.errors) : '') || detailMessage
+    : '';
+  const responseDetail = !success && body
+    ? ` Chi tiết phản hồi: ${typeof body === 'string' ? body : JSON.stringify(body)}`
     : '';
 
+  const resolvedMessage = message || (success ? fallbackSuccessMessage : `${fallbackErrorMessage} HTTP ${response.status}.`);
   return {
     success,
     httpStatus: response.status,
     type: success ? 'SUCCESS' : response.status === 401 ? 'AUTH_ERROR' : 'API_ERROR',
-    message: message || (success ? fallbackSuccessMessage : `${fallbackErrorMessage} HTTP ${response.status}.`),
+    message: success ? resolvedMessage : `${resolvedMessage}${responseDetail}`,
     data: body
   };
 }
@@ -827,7 +835,7 @@ export async function editDvcProcedureMapping(payload, options = {}) {
   };
 
   try {
-    const response = await axios.post(targetUrl, requestBody, {
+    const response = await axios.put(targetUrl, requestBody, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',

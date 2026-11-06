@@ -15,7 +15,7 @@ import {
   GitCompareArrows
 } from 'lucide-react';
 
-export type TabId = 'dashboard' | 'excel' | 'procedure' | 'procedureTiming' | 'procedureDeploy' | 'dvcProcedureMapping' | 'mapping' | 'execution' | 'history' | 'settings';
+export type TabId = 'dashboard' | 'excel' | 'procedure' | 'procedureTiming' | 'bpmnStepMapping' | 'procedureDeploy' | 'dvcProcedureMapping' | 'mapping' | 'execution' | 'history' | 'settings';
 
 interface SidebarProps {
   activeTab: TabId;
@@ -71,6 +71,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
       icon: Clock3,
       badge: '68 ID',
       badgeColor: 'bg-amber-500/20 text-amber-300'
+    },
+    {
+      id: 'bpmnStepMapping',
+      label: 'Mapping bước BPMN',
+      sublabel: 'Catalog & userTask hàng loạt',
+      icon: GitCompareArrows,
+      badgeColor: 'bg-violet-500/20 text-violet-300'
     },
     {
       id: 'procedureDeploy',

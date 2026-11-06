@@ -1,8 +1,9 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { CheckCircle2, Loader2, RefreshCw, Save, Search, ShieldAlert, X, XCircle } from 'lucide-react';
+import { CheckCircle2, Download, FileSpreadsheet, Loader2, RefreshCw, Save, Search, ShieldAlert, X, XCircle } from 'lucide-react';
 import { api } from '../services/api';
 import { DvcDepartmentItem, DvcLpmDomainItem, DvcMappingDataTypeOption, DvcMappingValue, DvcProcessItem, DvcProcedureItem, DvhcScopeItem, LpmProcessItem, LpmProcedureItem, TokenStatus } from '../types';
 import { DVC_PROCEDURE_REFERENCES } from '../dvcProcedureReference';
+import mappingWorkbookUrl from '../assets/mapping_thu_tuc_quy_trinh.xlsx?url';
 
 interface DvcProcedureMappingViewProps {
   tokenStatus: TokenStatus | null;
@@ -186,6 +187,22 @@ function normalizeDvcItem(item: any): DvcProcedureItem {
   };
 }
 
+function deduplicateDvcProcedures(items: DvcProcedureItem[]) {
+  const seen = new Set<string>();
+  const duplicateCodes = new Set<string>();
+  const uniqueItems = items.filter(item => {
+    const key = normalizeText(item.ma) || `id:${item.id}`;
+    if (!key || !seen.has(key)) {
+      if (key) seen.add(key);
+      return true;
+    }
+    duplicateCodes.add(item.ma || item.id);
+    return false;
+  });
+
+  return { items: uniqueItems, duplicateCodes: [...duplicateCodes] };
+}
+
 function normalizeLpmProcess(item: any): LpmProcessItem {
   return {
     ...item,
@@ -255,6 +272,52 @@ function extractProcessMappings(data: any): any[] {
   };
   visit(data);
   return values;
+}
+
+function extractMappingConfigRecord(data: any): any | null {
+  if (!data) return null;
+  if (Array.isArray(data)) return data.find(item => item?.mapGiaTri !== undefined || item?.loaiDanhMuc) || null;
+  if (data?.mapGiaTri !== undefined || data?.loaiDanhMuc) return data;
+  if (data?.data) return extractMappingConfigRecord(data.data);
+  if (data?.result) return extractMappingConfigRecord(data.result);
+  return null;
+}
+
+function extractMappingConfigId(data: any) {
+  return textValue(extractMappingConfigRecord(data), ['id']);
+}
+
+function extractMappingConfigReference(data: any) {
+  return textValue(extractMappingConfigRecord(data), ['thamChieuLpm', 'thamChieuLPM']);
+}
+
+function processMappingKey(value: any) {
+  return `${textValue(value, ['idThuTucDvc', 'idThuTucDVC'])}|${textValue(value, ['id', 'idQuyTrinhDVC', 'idQuyTrinhDvc', 'ma', 'maQuyTrinhDVC'])}`;
+}
+
+function isCompleteProcessMapping(value: any) {
+  return Boolean(
+    textValue(value, ['id', 'idQuyTrinhDVC', 'idQuyTrinhDvc', 'ma', 'maQuyTrinhDVC']) &&
+    textValue(value, ['idThuTucDvc', 'idThuTucDVC']) &&
+    textValue(value, ['idLpm', 'idQuyTrinhLpm', 'idQuyTrinhLPM']) &&
+    textValue(value, ['idDvhcLPM', 'idDvhcLpm', 'idDvhc'])
+  );
+}
+
+function mergeProcessMappings(existing: any[], updates: any[]) {
+  const merged = existing.filter(isCompleteProcessMapping);
+  const indexByKey = new Map(merged.map((item, index) => [processMappingKey(item), index]));
+  updates.filter(isCompleteProcessMapping).forEach(update => {
+    const key = processMappingKey(update);
+    const existingIndex = indexByKey.get(key);
+    if (existingIndex === undefined) {
+      indexByKey.set(key, merged.length);
+      merged.push(update);
+    } else {
+      merged[existingIndex] = update;
+    }
+  });
+  return merged;
 }
 
 function buildProcessMappingRows(dvcItems: DvcProcessItem[], lpmItems: LpmProcessItem[], scopes: DvhcScopeItem[], mappingData: any) {
@@ -377,17 +440,23 @@ function scoreMatch(dvc: DvcProcedureItem, lpm: LpmProcedureItem) {
   return Math.round((overlap / Math.max(dvcWords.size, lpmWords.size)) * 60);
 }
 
-function buildMappingRows(dvcItems: DvcProcedureItem[], lpmItems: LpmProcedureItem[]) {
+function buildMappingRows(dvcItems: DvcProcedureItem[], lpmItems: LpmProcedureItem[], mappingData?: any) {
+  const existingMappings = extractExistingMappingValues(mappingData);
   return dvcItems.map(dvc => {
-    const existing = dvc.idLpm ? lpmItems.find(item => item.id === dvc.idLpm) : undefined;
-    if (existing) {
-      return { dvc, candidates: [existing], selectedLpmId: existing.id, status: 'matched' as const };
-    }
-
     const referenceLpmCode = dvcToLpmReference.get(normalizeText(dvc.ma));
     const referenceCandidates = referenceLpmCode
       ? lpmItems.filter(item => normalizeProcedureReferenceCode(item.maThuTuc) === referenceLpmCode)
       : [];
+    const existingMapping = existingMappings.find(mapping => {
+      const mappingCode = textValue(mapping, ['ma', 'maDvc']);
+      const mappingId = textValue(mapping, ['id', 'idDvc']);
+      return (mappingCode && mappingCode === dvc.ma) || (mappingId && mappingId === dvc.ma);
+    });
+    const persistedLpmId = textValue(existingMapping, ['idLpm', 'idLPM', 'idThuTucLpm']) || dvc.idLpm || '';
+    const persistedLpm = persistedLpmId ? lpmItems.find(item => item.id === persistedLpmId) : undefined;
+    if (persistedLpm && (referenceCandidates.length === 0 || referenceCandidates.some(item => item.id === persistedLpm.id))) {
+      return { dvc, candidates: [persistedLpm], selectedLpmId: persistedLpm.id, status: 'matched' as const };
+    }
     if (referenceCandidates.length > 0) {
       return {
         dvc,
@@ -397,37 +466,30 @@ function buildMappingRows(dvcItems: DvcProcedureItem[], lpmItems: LpmProcedureIt
       };
     }
 
-    const ranked = lpmItems
-      .map(item => ({ item, score: scoreMatch(dvc, item) }))
-      .filter(entry => entry.score > 0)
-      .sort((left, right) => right.score - left.score);
-    const bestScore = ranked[0]?.score || 0;
-    const best = ranked.filter(entry => entry.score === bestScore).map(entry => entry.item);
-    const autoMatch = bestScore >= 95 && best.length === 1 ? best[0] : undefined;
+    // Không suy đoán theo tên hoặc mã gần đúng; chỉ dùng cặp quy đổi đã cung cấp.
     return {
       dvc,
-      candidates: best.slice(0, 8),
-      selectedLpmId: autoMatch?.id || '',
-      status: autoMatch ? 'matched' as const : best.length > 0 ? 'suggested' as const : 'unmatched' as const
+      candidates: [],
+      selectedLpmId: '',
+      status: 'unmatched' as const
     };
   });
 }
 
 function autoMapRows(rows: MappingRow[], lpmItems: LpmProcedureItem[]) {
   return rows.map(row => {
-    const ranked = lpmItems
-      .map(item => ({ item, score: scoreMatch(row.dvc, item) }))
-      .filter(entry => entry.score > 0)
-      .sort((left, right) => right.score - left.score);
-    const bestScore = ranked[0]?.score || 0;
-    const best = ranked.filter(entry => entry.score === bestScore).map(entry => entry.item);
-    if (best.length === 1 && bestScore >= 95) {
-      return { ...row, candidates: best.slice(0, 8), selectedLpmId: best[0].id, status: 'matched' as const };
+    const referenceLpmCode = dvcToLpmReference.get(normalizeText(row.dvc.ma));
+    const candidates = referenceLpmCode
+      ? lpmItems.filter(item => normalizeProcedureReferenceCode(item.maThuTuc) === referenceLpmCode)
+      : [];
+    if (candidates.length === 1) {
+      return { ...row, candidates, selectedLpmId: candidates[0].id, status: 'matched' as const };
     }
     return {
       ...row,
-      candidates: best.slice(0, 8),
-      status: best.length > 0 ? 'suggested' as const : 'unmatched' as const
+      candidates: candidates.slice(0, 8),
+      selectedLpmId: '',
+      status: candidates.length > 1 ? 'suggested' as const : 'unmatched' as const
     };
   });
 }
@@ -444,6 +506,8 @@ export const DvcProcedureMappingView: React.FC<DvcProcedureMappingViewProps> = (
   const [keywordSearch, setKeywordSearch] = useState('');
   const [lpmItems, setLpmItems] = useState<LpmProcedureItem[]>([]);
   const [rows, setRows] = useState<MappingRow[]>([]);
+  const [dvcDuplicateCodes, setDvcDuplicateCodes] = useState<string[]>([]);
+  const [existingProcedureMappingCount, setExistingProcedureMappingCount] = useState(0);
   const [mappedDomains, setMappedDomains] = useState<DvcLpmDomainItem[]>([]);
   const [selectedDomainId, setSelectedDomainId] = useState('');
   const [departments, setDepartments] = useState<DvcDepartmentItem[]>([]);
@@ -465,6 +529,10 @@ export const DvcProcedureMappingView: React.FC<DvcProcedureMappingViewProps> = (
   const [processOverviewError, setProcessOverviewError] = useState('');
   const [processSaving, setProcessSaving] = useState(false);
   const [processSaveMessage, setProcessSaveMessage] = useState('');
+  const [processMappingConfigId, setProcessMappingConfigId] = useState('');
+  const [processMappingExistingValues, setProcessMappingExistingValues] = useState<any[]>([]);
+  const [processMappingReference, setProcessMappingReference] = useState('');
+  const [processHasExistingSelection, setProcessHasExistingSelection] = useState(false);
   const [processOverviewSaving, setProcessOverviewSaving] = useState(false);
   const [processOverviewSaveMessage, setProcessOverviewSaveMessage] = useState('');
 
@@ -480,6 +548,11 @@ export const DvcProcedureMappingView: React.FC<DvcProcedureMappingViewProps> = (
   }, [rows, showUnmappedOnly]);
   const processOverviewUnreadyCount = useMemo(
     () => processOverviewRows.filter(row => !row.selectedLpmId || !row.selectedScopeId || !row.candidates.some(item => item.id === row.selectedLpmId)).length,
+    [processOverviewRows]
+  );
+  const processOverviewMappedCount = processOverviewRows.length - processOverviewUnreadyCount;
+  const processOverviewLpmCount = useMemo(
+    () => new Set(processOverviewRows.map(row => row.selectedLpmId).filter(Boolean)).size,
     [processOverviewRows]
   );
 
@@ -508,6 +581,7 @@ export const DvcProcedureMappingView: React.FC<DvcProcedureMappingViewProps> = (
       setMappingId(String(nextOption.id));
     }
     setRows([]);
+    setDvcDuplicateCodes([]);
     setLpmItems([]);
     setSelectedDomainId('');
     setMappedDomains([]);
@@ -543,19 +617,59 @@ export const DvcProcedureMappingView: React.FC<DvcProcedureMappingViewProps> = (
     setIsLoading(true);
     setError('');
     setMessage('');
+    setDvcDuplicateCodes([]);
     try {
-      const [lpmResult, dvcResult] = await Promise.all([
+      const [lpmResult, dvcResult, existingResult] = await Promise.all([
         api.getLpmProceduresForDvcMapping(nextLpmDomainId.trim()),
-        api.getDvcProceduresForMapping(nextDvcDomainId.trim(), keywordSearch)
+        api.getDvcProceduresForMapping(nextDvcDomainId.trim(), keywordSearch),
+        api.getExistingDvcMapping('ThuTuc', '')
       ]);
       if (!lpmResult.success) throw new Error(`LPM: ${lpmResult.message} (HTTP ${lpmResult.httpStatus})`);
       if (!dvcResult.success) throw new Error(`DVC: ${dvcResult.message} (HTTP ${dvcResult.httpStatus})`);
 
       const nextLpmItems = lpmResult.items.map(normalizeLpmItem).filter(item => item.id);
-      const nextDvcItems = dvcResult.items.map(normalizeDvcItem).filter(item => item.id || item.ma);
+      const normalizedDvcItems = dvcResult.items.map(normalizeDvcItem).filter(item => item.id || item.ma);
+      const deduplicatedDvc = deduplicateDvcProcedures(normalizedDvcItems);
+      const nextDvcItems = deduplicatedDvc.items.filter(item => dvcToLpmReference.has(normalizeText(item.ma)));
+      const referenceLpmCodes = [...new Set(DVC_PROCEDURE_REFERENCES.map(item => normalizeProcedureReferenceCode(item.maLpm)))];
+      const loadedLpmCodes = new Set(nextLpmItems.map(item => normalizeProcedureReferenceCode(item.maThuTuc)));
+      const missingLpmCodes = referenceLpmCodes.filter(code => !loadedLpmCodes.has(code));
+      const loadedDvcCodes = new Set(deduplicatedDvc.items.map(item => normalizeText(item.ma)));
+      const missingDvcCodes = DVC_PROCEDURE_REFERENCES
+        .map(item => item.maDvc)
+        .filter(code => !loadedDvcCodes.has(normalizeText(code)));
+      const existingMappings = existingResult.success
+        ? extractExistingMappingValues(existingResult.data || existingResult.items)
+        : [];
+      const currentDvcCodes = new Set(nextDvcItems.map(item => normalizeText(item.ma)));
+      const existingCurrentCount = existingMappings.filter(mapping => {
+        const code = textValue(mapping, ['ma', 'id', 'maDvc']);
+        return currentDvcCodes.has(normalizeText(code));
+      }).length;
       setLpmItems(nextLpmItems);
-      setRows(buildMappingRows(nextDvcItems, nextLpmItems));
-      setMessage(`Đã tải ${nextLpmItems.length} thủ tục LPM và ${nextDvcItems.length} thủ tục DVC.`);
+      setRows(buildMappingRows(nextDvcItems, nextLpmItems, existingResult.success ? existingResult.data : null));
+      setDvcDuplicateCodes(deduplicatedDvc.duplicateCodes);
+      setExistingProcedureMappingCount(existingCurrentCount);
+      const messageParts = [
+        `Đã tải ${nextLpmItems.length} thủ tục LPM và ${nextDvcItems.length} thủ tục DVC thuộc danh sách quy đổi (${DVC_PROCEDURE_REFERENCES.length} cặp duy nhất).`
+      ];
+      if (deduplicatedDvc.duplicateCodes.length > 0) {
+        messageParts.push(`Đã loại ${deduplicatedDvc.duplicateCodes.length} bản ghi DVC trùng mã: ${deduplicatedDvc.duplicateCodes.join(', ')}.`);
+      } else {
+        messageParts.push('Không phát hiện mã thủ tục DVC bị trùng.');
+      }
+      if (missingLpmCodes.length > 0) {
+        messageParts.push(`LPM chưa trả về ${missingLpmCodes.length} mã trong quy đổi: ${missingLpmCodes.join(', ')}.`);
+      }
+      if (missingDvcCodes.length > 0) {
+        messageParts.push(`DVC chưa trả về ${missingDvcCodes.length} mã trong quy đổi: ${missingDvcCodes.join(', ')}.`);
+      }
+      if (existingResult.success) {
+        messageParts.push(`Đã tải ${existingCurrentCount} mapping thủ tục đã lưu từ LPM.`);
+      } else {
+        messageParts.push(`Chưa tải được mapping thủ tục đã lưu: ${existingResult.message} (HTTP ${existingResult.httpStatus}).`);
+      }
+      setMessage(messageParts.join(' '));
     } catch (err: any) {
       setError(err?.message || 'Không tải được danh sách thủ tục.');
     } finally {
@@ -695,6 +809,10 @@ export const DvcProcedureMappingView: React.FC<DvcProcedureMappingViewProps> = (
     setProcessRows([]);
     setProcessLpmItems([]);
     setProcessScopes([]);
+    setProcessHasExistingSelection(false);
+    setProcessMappingConfigId('');
+    setProcessMappingExistingValues([]);
+    setProcessMappingReference('');
     setProcessError('');
     setProcessSaveMessage('');
     setProcessLoading(true);
@@ -702,7 +820,8 @@ export const DvcProcedureMappingView: React.FC<DvcProcedureMappingViewProps> = (
       const [lpmResult, dvhcResult, existingResult, dvcResult] = await Promise.all([
         api.getLpmProcessesForDvcMapping(lpmProcedure.id),
         api.getDvhcTreeForDvcMapping(),
-        api.getExistingDvcMapping('QuyTrinh', lpmProcedure.id),
+        // QuyTrinh được lưu chung theo tỉnh, không lọc theo từng thủ tục LPM.
+        api.getExistingDvcMapping('QuyTrinh', ''),
         api.getDvcProcessesForDvcMapping(row.dvc.ma || row.dvc.id)
       ]);
       if (!lpmResult.success) throw new Error(`LPM: ${lpmResult.message} (HTTP ${lpmResult.httpStatus})`);
@@ -712,9 +831,20 @@ export const DvcProcedureMappingView: React.FC<DvcProcedureMappingViewProps> = (
       const nextLpmProcesses = lpmResult.items.map(normalizeLpmProcess).filter(item => item.id && item.maQuyTrinh);
       const nextDvcProcesses = dvcResult.items.map(normalizeDvcProcess).filter(item => item.id || item.ma);
       const nextScopes = dvhcResult.success ? flattenDvhcScopes(dvhcResult.items) : [];
+      const existingMappingData = existingResult.data || existingResult.items;
+      const existingValues = extractProcessMappings(existingMappingData);
+      const procedureDvcCode = row.dvc.ma || row.dvc.id;
+      const nextRows = buildProcessMappingRows(nextDvcProcesses, nextLpmProcesses, nextScopes, existingMappingData);
       setProcessLpmItems(nextLpmProcesses);
       setProcessScopes(nextScopes);
-      setProcessRows(buildProcessMappingRows(nextDvcProcesses, nextLpmProcesses, nextScopes, existingResult.data || existingResult.items));
+      setProcessRows(nextRows);
+      setProcessMappingConfigId(extractMappingConfigId(existingMappingData));
+      setProcessMappingExistingValues(existingValues);
+      setProcessMappingReference(extractMappingConfigReference(existingMappingData));
+      setProcessHasExistingSelection(existingValues.some(item =>
+        textValue(item, ['idThuTucDvc', 'idThuTucDVC']) === procedureDvcCode &&
+        nextRows.some(processRow => processRow.selectedLpmId && processRow.dvc.id === textValue(item, ['idQuyTrinhDVC', 'idQuyTrinhDvc', 'id', 'ma']))
+      ));
       if (!dvhcResult.success) {
         setProcessError(`Không tải được đơn vị hành chính: ${dvhcResult.message} (HTTP ${dvhcResult.httpStatus}). Bạn vẫn có thể kiểm tra mapping quy trình.`);
       }
@@ -742,8 +872,14 @@ export const DvcProcedureMappingView: React.FC<DvcProcedureMappingViewProps> = (
       return;
     }
 
+    const mappedProcessRows = processRows.filter(row => row.selectedLpmId && row.selectedScopeId);
+    if (mappedProcessRows.length === 0) {
+      setProcessError('Chưa có quy trình nào đủ mapping và đơn vị hành chính để lưu.');
+      return;
+    }
+
     const lpmById = new Map(processLpmItems.map(item => [item.id, item]));
-    const mapGiaTri = processRows.map(row => {
+    const mapGiaTri = mappedProcessRows.map(row => {
       const lpm = lpmById.get(row.selectedLpmId);
       return {
         id: row.dvc.id || row.dvc.ma,
@@ -762,17 +898,34 @@ export const DvcProcedureMappingView: React.FC<DvcProcedureMappingViewProps> = (
     setProcessError('');
     setProcessSaveMessage('');
     try {
-      const result = await api.addDvcProcessMapping({
-        mapGiaTri,
-        thamChieuLpm: lpmProcedure.id,
-        apiDvc: '',
-        moTa: ''
-      });
+      const mappingConfigId = Number(processMappingConfigId);
+      const currentProcedureId = processModalRow.dvc.ma || processModalRow.dvc.id;
+      const existingValuesForProcedure = processMappingExistingValues.filter(item =>
+        textValue(item, ['idThuTucDvc', 'idThuTucDVC']) === currentProcedureId
+      );
+      const result = processHasExistingSelection
+        ? !Number.isFinite(mappingConfigId) || mappingConfigId <= 0
+          ? { success: false, message: 'Không tìm thấy id cấu hình ánh xạ quy trình hiện có để gọi Edit. Hãy tải lại dữ liệu mapping trước.', httpStatus: 0 }
+          : await api.editDvcProcedureMapping({
+            id: mappingConfigId,
+            loaiDanhMuc: 'QuyTrinh',
+            mapGiaTri: mergeProcessMappings(existingValuesForProcedure, mapGiaTri),
+            thamChieuLpm: processMappingReference || lpmProcedure.id,
+            apiDvc: '',
+            moTa: ''
+          })
+        : await api.addDvcProcessMapping({
+          mapGiaTri,
+          thamChieuLpm: lpmProcedure.id,
+          apiDvc: '',
+          moTa: ''
+        });
       if (!result.success) {
         setProcessError(`${result.message} (HTTP ${result.httpStatus})`);
         return;
       }
-      setProcessSaveMessage(`Đã lưu ánh xạ ${mapGiaTri.length} quy trình.`);
+      const skippedCount = processRows.length - mappedProcessRows.length;
+      setProcessSaveMessage(`Đã lưu ánh xạ ${mapGiaTri.length} quy trình${skippedCount > 0 ? `, bỏ qua ${skippedCount} dòng chưa đủ mapping.` : '.'}`);
     } catch (err: any) {
       setProcessError(err?.message || 'Không lưu được ánh xạ quy trình.');
     } finally {
@@ -806,7 +959,9 @@ export const DvcProcedureMappingView: React.FC<DvcProcedureMappingViewProps> = (
       onOpenTokenModal();
       return;
     }
-    const mappedProcedures = rows.filter(row => row.selectedLpmId);
+    const mappedProcedures = rows.filter(row =>
+      row.selectedLpmId && dvcToLpmReference.has(normalizeText(row.dvc.ma))
+    );
     if (mappedProcedures.length === 0) {
       setProcessOverviewRows([]);
       setProcessOverviewError('Chưa có thủ tục nào được mapping sang LPM.');
@@ -818,23 +973,30 @@ export const DvcProcedureMappingView: React.FC<DvcProcedureMappingViewProps> = (
     setProcessOverviewSaveMessage('');
     setProcessOverviewRows([]);
     try {
-      const dvhcResult = await api.getDvhcTreeForDvcMapping();
+      const [dvhcResult, existingResult] = await Promise.all([
+        api.getDvhcTreeForDvcMapping(),
+        // QuyTrinh được lưu chung theo tỉnh, không lọc theo từng thủ tục LPM.
+        api.getExistingDvcMapping('QuyTrinh', '')
+      ]);
       const scopes = dvhcResult.success ? flattenDvhcScopes(dvhcResult.items) : [];
       setProcessScopes(scopes);
+      const existingMappingData = existingResult.success ? (existingResult.data || existingResult.items) : null;
+      setProcessMappingConfigId(extractMappingConfigId(existingMappingData));
+      setProcessMappingExistingValues(extractProcessMappings(existingMappingData));
+      setProcessMappingReference(extractMappingConfigReference(existingMappingData));
       const overview: ProcessOverviewRow[] = [];
 
       for (const procedure of mappedProcedures) {
         const lpmProcedure = lpmItems.find(item => item.id === procedure.selectedLpmId);
         if (!lpmProcedure) continue;
-        const [lpmResult, existingResult, dvcResult] = await Promise.all([
+        const [lpmResult, dvcResult] = await Promise.all([
           api.getLpmProcessesForDvcMapping(lpmProcedure.id),
-          api.getExistingDvcMapping('QuyTrinh', lpmProcedure.id),
           api.getDvcProcessesForDvcMapping(procedure.dvc.ma || procedure.dvc.id)
         ]);
         if (!lpmResult.success || !dvcResult.success) continue;
         const lpmProcesses = lpmResult.items.map(normalizeLpmProcess).filter(item => item.id && item.maQuyTrinh);
         const dvcProcesses = dvcResult.items.map(normalizeDvcProcess).filter(item => item.id || item.ma);
-        const processRowsForProcedure = buildProcessMappingRows(dvcProcesses, lpmProcesses, scopes, existingResult.success ? (existingResult.data || existingResult.items) : null);
+        const processRowsForProcedure = buildProcessMappingRows(dvcProcesses, lpmProcesses, scopes, existingMappingData);
         processRowsForProcedure.forEach(processRow => overview.push({ ...processRow, procedure }));
       }
 
@@ -857,26 +1019,20 @@ export const DvcProcedureMappingView: React.FC<DvcProcedureMappingViewProps> = (
       setProcessOverviewError('Chưa có danh sách quy trình để lưu. Hãy tải lại quy trình trước.');
       return;
     }
-    if (processOverviewUnreadyCount > 0) {
-      setProcessOverviewError(`Còn ${processOverviewUnreadyCount} quy trình chưa đủ quy trình LPM hoặc đơn vị hành chính.`);
+    const savableRows = processOverviewRows.filter(row =>
+      row.selectedLpmId && row.selectedScopeId && row.candidates.some(item => item.id === row.selectedLpmId)
+    );
+    if (savableRows.length === 0) {
+      setProcessOverviewError('Chưa có quy trình nào đủ mapping và đơn vị hành chính để lưu.');
       return;
     }
-
-    const groups = Array.from(new Map(
-      processOverviewRows.map(row => [row.procedure.selectedLpmId, [] as ProcessOverviewRow[]])
-    ).keys()).map(lpmProcedureId => ({
-      lpmProcedureId,
-      rows: processOverviewRows.filter(row => row.procedure.selectedLpmId === lpmProcedureId)
-    }));
+    const skippedCount = processOverviewRows.length - savableRows.length;
 
     setProcessOverviewSaving(true);
     setProcessOverviewError('');
     setProcessOverviewSaveMessage('');
     try {
-      let savedCount = 0;
-      for (const group of groups) {
-        const procedure = group.rows[0].procedure;
-        const mapGiaTri = group.rows.map(row => {
+      const mapGiaTri = savableRows.map(row => {
           const lpm = row.candidates.find(item => item.id === row.selectedLpmId);
           return {
             id: row.dvc.id || row.dvc.ma,
@@ -885,21 +1041,30 @@ export const DvcProcedureMappingView: React.FC<DvcProcedureMappingViewProps> = (
             idLpm: lpm?.id || '',
             maLPM: '',
             tenLPM: '',
-            idThuTucDvc: procedure.dvc.ma || procedure.dvc.id,
+            idThuTucDvc: row.procedure.dvc.ma || row.procedure.dvc.id,
             idDvhcLPM: row.selectedScopeId,
             idQuyTrinhLpm: lpm?.id || ''
           };
         });
-        const result = await api.addDvcProcessMapping({
+      const mappingConfigId = Number(processMappingConfigId);
+      const result = Number.isFinite(mappingConfigId) && mappingConfigId > 0
+        ? await api.editDvcProcedureMapping({
+          id: mappingConfigId,
+          loaiDanhMuc: 'QuyTrinh',
+          mapGiaTri: mergeProcessMappings(processMappingExistingValues, mapGiaTri),
+          thamChieuLpm: processMappingReference || savableRows[0].procedure.selectedLpmId,
+          apiDvc: '',
+          moTa: ''
+        })
+        : await api.addDvcProcessMapping({
           mapGiaTri,
-          thamChieuLpm: group.lpmProcedureId,
+          thamChieuLpm: savableRows[0].procedure.selectedLpmId,
           apiDvc: '',
           moTa: ''
         });
-        if (!result.success) throw new Error(`${result.message} (HTTP ${result.httpStatus})`);
-        savedCount += mapGiaTri.length;
-      }
-      setProcessOverviewSaveMessage(`Đã lưu riêng ${savedCount} ánh xạ quy trình.`);
+      if (!result.success) throw new Error(`${result.message} (HTTP ${result.httpStatus})`);
+      const savedCount = mapGiaTri.length;
+      setProcessOverviewSaveMessage(`Đã lưu riêng ${savedCount} ánh xạ quy trình${skippedCount > 0 ? `, bỏ qua ${skippedCount} dòng chưa đủ mapping.` : '.'}`);
     } catch (err: any) {
       setProcessOverviewError(err?.message || 'Không lưu được ánh xạ quy trình.');
     } finally {
@@ -965,7 +1130,30 @@ export const DvcProcedureMappingView: React.FC<DvcProcedureMappingViewProps> = (
         moTa: isProcedureMapping ? '' : textValue(selectedDataType, ['moTa', 'description'])
       });
       if (!result.success) {
-        setError(`${result.message} (HTTP ${result.httpStatus})`);
+        const permissionError = /user grant|chức năng này chưa được đăng ký|permission|quyền/i.test(result.message || '');
+        if (permissionError) {
+          setError(`${result.message} (HTTP ${result.httpStatus}). Lưu từng dòng cũng sẽ bị từ chối nếu token chưa có quyền.`);
+          return;
+        }
+
+        setMessage(`Lưu hàng loạt thất bại (HTTP ${result.httpStatus}), đang thử lưu tuần tự từng thủ tục...`);
+        for (let index = 0; index < mapGiaTri.length; index += 1) {
+          const sequentialResult = await api.editDvcProcedureMapping({
+            id: isProcedureMapping ? 22 : Number(mappingId),
+            loaiDanhMuc: isProcedureMapping
+              ? 'ThuTuc'
+              : textValue(selectedDataType, ['loaiDanhMuc', 'maLoaiDuLieu', 'code', 'value']) || dataType,
+            mapGiaTri: mapGiaTri.slice(0, index + 1),
+            apiDvc: isProcedureMapping ? '' : textValue(selectedDataType, ['apiDvc', 'apiDVC']),
+            thamChieuLpm: isProcedureMapping ? '' : textValue(selectedDataType, ['thamChieuLpm', 'thamChieuLPM']),
+            moTa: isProcedureMapping ? '' : textValue(selectedDataType, ['moTa', 'description'])
+          });
+          if (!sequentialResult.success) {
+            throw new Error(`Lỗi tại thủ tục ${mapGiaTri[index].ma}: ${sequentialResult.message} (HTTP ${sequentialResult.httpStatus}). Lỗi hàng loạt ban đầu: ${result.message}`);
+          }
+          setMessage(`Đang lưu tuần tự ${index + 1}/${mapGiaTri.length} thủ tục...`);
+        }
+        setMessage(`Đã lưu tuần tự ${mapGiaTri.length} mapping thủ tục DVC - LPM.`);
         return;
       }
       setMessage(`Đã lưu ${mapGiaTri.length} mapping thủ tục DVC - LPM.`);
@@ -1033,6 +1221,19 @@ export const DvcProcedureMappingView: React.FC<DvcProcedureMappingViewProps> = (
       {error && <div className="rounded-xl border border-red-500/40 bg-red-950/30 px-4 py-3 text-sm text-red-200"><ShieldAlert className="mr-2 inline h-4 w-4" />{error}</div>}
       {message && <div className="rounded-xl border border-emerald-500/40 bg-emerald-950/30 px-4 py-3 text-sm text-emerald-200"><CheckCircle2 className="mr-2 inline h-4 w-4" />{message}</div>}
 
+      {isProcedureDataType(dataType) && <section className="overflow-hidden rounded-2xl border border-cyan-900/70 bg-slate-900/60">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 px-5 py-4">
+          <div className="flex items-center gap-3"><FileSpreadsheet className="h-5 w-5 text-emerald-300" /><div><h2 className="font-semibold text-white">Bảng quy ước mã mapping thủ tục</h2><p className="mt-1 text-xs text-slate-500">{DVC_PROCEDURE_REFERENCES.length} cặp mã LPM - DVC được dùng để tự mapping thủ tục.</p></div></div>
+          <a href={mappingWorkbookUrl} download="mapping_thu_tuc_quy_trinh.xlsx" className="inline-flex items-center gap-2 rounded-lg border border-cyan-700 bg-cyan-950/40 px-3 py-2 text-xs font-semibold text-cyan-200 hover:bg-cyan-900/60"><Download className="h-4 w-4" />Tải file Excel mapping</a>
+        </div>
+        <div className="max-h-64 overflow-auto">
+          <table className="w-full min-w-[620px] text-left text-xs">
+            <thead className="sticky top-0 bg-slate-950 text-slate-400"><tr><th className="w-16 px-5 py-3">#</th><th className="px-5 py-3">Mã thủ tục LPM</th><th className="px-5 py-3">Mã thủ tục DVC</th><th className="px-5 py-3">Quy ước</th></tr></thead>
+            <tbody className="divide-y divide-slate-800">{DVC_PROCEDURE_REFERENCES.map((item, index) => <tr key={`${item.maLpm}-${item.maDvc}`}><td className="px-5 py-2 text-slate-500">{index + 1}</td><td className="px-5 py-2 font-mono text-blue-300">{item.maLpm}</td><td className="px-5 py-2 font-mono text-cyan-300">{item.maDvc}</td><td className="px-5 py-2 text-slate-400">Mã tham chiếu</td></tr>)}</tbody>
+          </table>
+        </div>
+      </section>}
+
       <div className="flex gap-2 border-b border-slate-800">
         <button type="button" onClick={() => setActiveMappingTab('procedures')} className={`border-b-2 px-4 py-3 text-sm font-semibold ${activeMappingTab === 'procedures' ? 'border-blue-400 text-blue-300' : 'border-transparent text-slate-500 hover:text-slate-300'}`}>Danh sách thủ tục</button>
         <button type="button" onClick={() => { setActiveMappingTab('processes'); void loadProcessOverview(); }} className={`border-b-2 px-4 py-3 text-sm font-semibold ${activeMappingTab === 'processes' ? 'border-violet-400 text-violet-300' : 'border-transparent text-slate-500 hover:text-slate-300'}`}>Danh sách quy trình</button>
@@ -1056,11 +1257,12 @@ export const DvcProcedureMappingView: React.FC<DvcProcedureMappingViewProps> = (
           <div><h2 className="font-semibold text-white">Danh sách quy trình</h2><p className="mt-1 text-xs text-slate-500">Các thủ tục đã mapping LPM sẽ được tải quy trình và đối chiếu mã tự động.</p></div>
           <div className="flex flex-wrap gap-2">
             <button type="button" onClick={() => void loadProcessOverview()} disabled={processOverviewLoading || processOverviewSaving || rows.length === 0} className="inline-flex items-center gap-2 rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-500 disabled:cursor-not-allowed disabled:opacity-50"><RefreshCw className={`h-4 w-4 ${processOverviewLoading ? 'animate-spin' : ''}`} />Tải lại quy trình</button>
-            <button type="button" onClick={() => void saveProcessOverview()} disabled={processOverviewSaving || processOverviewLoading || processOverviewRows.length === 0 || processOverviewUnreadyCount > 0} className="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-500 disabled:cursor-not-allowed disabled:opacity-50">{processOverviewSaving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />}Lưu ánh xạ quy trình</button>
+            <button type="button" onClick={() => void saveProcessOverview()} disabled={processOverviewSaving || processOverviewLoading || processOverviewMappedCount === 0} className="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-500 disabled:cursor-not-allowed disabled:opacity-50">{processOverviewSaving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />}Lưu ánh xạ quy trình</button>
           </div>
         </div>
         {processOverviewError && <div className="mx-5 mt-4 rounded-lg border border-amber-500/40 bg-amber-950/20 px-4 py-3 text-sm text-amber-200"><ShieldAlert className="mr-2 inline h-4 w-4" />{processOverviewError}</div>}
         {processOverviewSaveMessage && <div className="mx-5 mt-4 rounded-lg border border-emerald-500/40 bg-emerald-950/30 px-4 py-3 text-sm text-emerald-200"><CheckCircle2 className="mr-2 inline h-4 w-4" />{processOverviewSaveMessage}</div>}
+        <div className="grid gap-3 border-b border-slate-800 bg-slate-950/40 px-5 py-3 text-xs sm:grid-cols-4"><div><span className="text-slate-500">Quy trình LPM: </span><span className="font-semibold text-blue-300">{processOverviewLpmCount}</span></div><div><span className="text-slate-500">Quy trình DVC: </span><span className="font-semibold text-cyan-300">{processOverviewRows.length}</span></div><div><span className="text-slate-500">Đã ánh xạ: </span><span className="font-semibold text-emerald-300">{processOverviewMappedCount}</span></div><div><span className="text-slate-500">Chưa ánh xạ: </span><span className="font-semibold text-amber-300">{processOverviewUnreadyCount}</span></div></div>
         {processOverviewLoading ? <div className="flex items-center justify-center gap-2 p-12 text-sm text-slate-400"><Loader2 className="h-5 w-5 animate-spin" />Đang tải danh sách quy trình...</div> : processOverviewRows.length === 0 ? <div className="p-12 text-center text-sm text-slate-500">Chưa có dữ liệu quy trình. Hãy mapping thủ tục trước rồi tải lại.</div> : <div className="max-h-[650px] overflow-auto"><table className="w-full min-w-[1180px] text-left text-xs"><thead className="sticky top-0 bg-slate-950 text-slate-400"><tr><th className="w-12 px-4 py-3">#</th><th className="w-[280px] px-4 py-3">Thủ tục DVC</th><th className="w-[360px] px-4 py-3">Quy trình DVC</th><th className="w-[360px] px-4 py-3">Quy trình LPM</th><th className="w-[260px] px-4 py-3">Đơn vị hành chính</th><th className="w-48 px-4 py-3">Trạng thái</th></tr></thead><tbody className="divide-y divide-slate-800">{processOverviewRows.map((row, index) => { const lpm = row.candidates.find(item => item.id === row.selectedLpmId); const scope = processScopes.find(item => item.scopeId === row.selectedScopeId); const status = row.selectedLpmId && row.selectedScopeId ? 'Sẵn sàng lưu' : row.selectedLpmId ? 'Thiếu đơn vị' : row.status === 'suggested' ? 'Cần chọn' : 'Chưa khớp'; return <tr key={`${row.procedure.dvc.id}-${row.dvc.id}-${index}`} className={row.status === 'suggested' ? 'bg-amber-500/[0.04]' : ''}><td className="px-4 py-3 text-slate-500">{index + 1}</td><td className="px-4 py-3"><div className="font-mono text-cyan-300">{row.procedure.dvc.ma || row.procedure.dvc.id}</div><div className="mt-1 line-clamp-2 text-slate-300">{row.procedure.dvc.ten}</div></td><td className="px-4 py-3"><div className="font-mono text-cyan-300">{row.dvc.ma || row.dvc.id}</div><div className="mt-1 line-clamp-2 text-slate-300">{row.dvc.ten}</div></td><td className="px-4 py-3">{lpm ? <><div className="font-mono text-blue-300">{lpm.maQuyTrinh}</div><div className="mt-1 line-clamp-2 text-slate-300">{lpm.tenQuyTrinh}</div></> : <span className="text-slate-500">—</span>}</td><td className="px-4 py-3 text-slate-300">{scope ? `${scope.scopeName} (${scope.scopeCode})` : '—'}</td><td className="px-4 py-3">{status === 'Sẵn sàng lưu' ? <span className="text-emerald-300">● {status}</span> : status === 'Cần chọn' || status === 'Thiếu đơn vị' ? <span className="text-amber-300">● {status}</span> : <span className="text-slate-400">● {status}</span>}</td></tr>; })}</tbody></table></div>}
       </section>
 

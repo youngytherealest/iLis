@@ -7,6 +7,7 @@ import { DashboardView } from './views/DashboardView';
 import { ExcelImportView } from './views/ExcelImportView';
 import { ProcedureUpdateView } from './views/ProcedureUpdateView';
 import { ProcedureTimingView } from './views/ProcedureTimingView';
+import { BpmnStepMappingView } from './views/BpmnStepMappingView';
 import { ProcedureDeployView } from './views/ProcedureDeployView';
 import { DvcProcedureMappingView } from './views/DvcProcedureMappingView';
 import { MappingView } from './views/MappingView';
@@ -434,6 +435,13 @@ export function App() {
 
           {activeTab === 'procedureTiming' && (
             <ProcedureTimingView
+              tokenStatus={tokenStatus}
+              onOpenTokenModal={() => setIsTokenModalOpen(true)}
+            />
+          )}
+
+          {activeTab === 'bpmnStepMapping' && (
+            <BpmnStepMappingView
               tokenStatus={tokenStatus}
               onOpenTokenModal={() => setIsTokenModalOpen(true)}
             />
