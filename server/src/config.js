@@ -10,6 +10,7 @@ export const CONFIG = {
   ILIS_GET_ACTIVE_PROCEDURE_STATUSES_PATH: '/lpm/api/TrangThaiHoSo/GetAllActive',
   ILIS_CONFIGURE_PROCEDURE_STEPS_PATH: '/lpm/api/Buoc/CauHinhBuocThuocQuyTrinh',
   CHECKLIST_WORKBOOK_PATH: 'D:\\Download\\iLis-Cấu hình quy trình.xlsx',
+  TIMING_WORKBOOK_PATH: 'D:\\Zalo Received Files\\danh_sach_so_do_moi.xlsx',
   ILIS_GET_ALL_PROCEDURES_BY_DOMAIN_PATH: '/lpm/api/ThuTuc/GetAllByLinhVucId',
   ILIS_GET_DVC_PROCEDURES_PATH: '/lpm/api/DVCDanhMuc/GetDanhMucThuTucTheoLinhVucDvcId',
   ILIS_GET_MAPPING_DATA_TYPES_PATH: '/lpm/api/DvcAnhXaDuLieu/GetDsLoaiDuLieuCanAnhXa',

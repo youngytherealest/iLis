@@ -157,6 +157,9 @@ export interface ProcedureTimingRow {
   responsibility: string;
   timeText: string;
   sectionTitle: string;
+  sourceFileCode?: string;
+  sourceLpmCode?: string;
+  sequence?: string;
   duration: ProcedureTimingDuration;
 }
 
@@ -167,12 +170,14 @@ export interface ProcedureTimingSheet {
   headerIndex: number;
   rowCount: number;
   mergesCount: number;
+  sourceProcedureCodes?: string[];
   timingRows: ProcedureTimingRow[];
 }
 
 export interface ProcedureTimingParseResponse {
   success: boolean;
   fileName: string;
+  message?: string;
   sheetNames: string[];
   sheetCount: number;
   sheets: ProcedureTimingSheet[];

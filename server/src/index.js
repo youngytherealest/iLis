@@ -299,6 +299,23 @@ app.post('/api/procedure-timings/parse', upload.single('file'), (req, res) => {
   }
 });
 
+app.get('/api/procedure-timings/default', (req, res) => {
+  try {
+    const filePath = CONFIG.TIMING_WORKBOOK_PATH;
+    if (!fs.existsSync(filePath)) {
+      return res.status(404).json({ success: false, message: `Không tìm thấy file Excel thời gian mặc định: ${filePath}`, sheets: [] });
+    }
+    res.json({
+      success: true,
+      fileName: path.basename(filePath),
+      ...parseProcedureTimingWorkbook(filePath)
+    });
+  } catch (err) {
+    console.error('Error loading default procedure timing workbook:', err);
+    res.status(500).json({ success: false, message: `Lỗi đọc file Excel thời gian mặc định: ${err.message}`, sheets: [] });
+  }
+});
+
 app.post('/api/procedure-timings/search', async (req, res) => {
   try {
     const { idQuyTrinh } = req.body;

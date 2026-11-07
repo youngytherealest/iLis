@@ -154,6 +154,23 @@ export const api = {
     return res.data;
   },
 
+  async getDefaultProcedureTimings(): Promise<ProcedureTimingParseResponse> {
+    try {
+      const res = await client.get('/procedure-timings/default', { timeout: 75000 });
+      return res.data;
+    } catch (err: any) {
+      const responseData = err?.response?.data;
+      return {
+        success: false,
+        fileName: '',
+        sheetNames: [],
+        sheetCount: 0,
+        sheets: [],
+        message: responseData?.message || responseData?.error || err?.message || 'Không tải được Excel thời gian mặc định.'
+      };
+    }
+  },
+
   async searchProcedureSteps(idQuyTrinh: string): Promise<ProcedureStepSearchResult> {
     try {
       const res = await client.post('/procedure-timings/search', { idQuyTrinh }, {
