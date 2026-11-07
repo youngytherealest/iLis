@@ -212,7 +212,7 @@ async function request(endpoint, { token, method = 'GET', body, params } = {}) {
   return payload;
 }
 
-async function searchProcesses(token) {
+async function searchProcesses(token, { pageSize = 200 } = {}) {
   const items = [];
   let pageNumber = 1;
   let totalPages = 1;
@@ -220,7 +220,7 @@ async function searchProcesses(token) {
     const response = await request('/lpm/api/QuyTrinhManage/Search', {
       token,
       method: 'POST',
-      body: { idThuTuc: '', idLinhVuc: '', fullTextSearch: '', pageSize: '100', pageNumber }
+      body: { idThuTuc: '', idLinhVuc: '', fullTextSearch: '', pageSize, pageNumber }
     });
     const page = response?.data;
     if (!page || !Array.isArray(page.items)) throw new Error('QuyTrinhManage/Search không trả data.items.');
@@ -229,6 +229,24 @@ async function searchProcesses(token) {
     pageNumber += 1;
   } while (pageNumber <= totalPages && pageNumber <= 1000);
   return items;
+}
+
+export async function getProcedureFileCatalog() {
+  const token = getToken();
+  if (!token) throw Object.assign(new Error('Chưa nhập Bearer Token.'), { status: 401 });
+
+  const items = await searchProcesses(token, { pageSize: 200 });
+  return items
+    .filter(item => /^3\d+_(?:T|X)$/i.test(String(item.maQuyTrinh || '').trim()))
+    .map(item => ({
+      id: String(item.id || ''),
+      maQuyTrinh: String(item.maQuyTrinh || ''),
+      maThuTuc: item.maThuTuc ?? null,
+      idThuTuc: item.idThuTuc ?? null,
+      tenQuyTrinh: String(item.tenQuyTrinh || item.ten || ''),
+      tenTrangThai: String(item.tenTrangThai || '')
+    }))
+    .filter(item => item.id && item.maQuyTrinh);
 }
 
 function findDvcMetadata(item, dvcWorkflows) {

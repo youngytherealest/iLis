@@ -12,6 +12,8 @@ import {
   XCircle
 } from 'lucide-react';
 import { api } from '../services/api';
+import { DVC_PROCEDURE_REFERENCES } from '../dvcProcedureReference';
+import { PROCESS_CODE_REFERENCES } from '../processCodeReference';
 import { ProcedureCatalogItem, ProcedureFileUpdateResult, TokenStatus } from '../types';
 
 type MatchStatus = 'matched' | 'ambiguous' | 'unmatched';
@@ -45,6 +47,97 @@ function extractBaseProcedureCode(code: string) {
   return match ? match[1] : code;
 }
 
+// Dùng cùng quy ước với màn hình mapping quy trình DVC-LPM:
+// 315828_T / 315828_X đều thuộc mã gốc 315828.
+function processBaseCode(value: string) {
+  return normalizeCode(value).replace(/\.(?:T|X)$/i, '');
+}
+
+function normalizeProcessReferenceCode(value: string) {
+  const parts = normalizeCode(value).split('.');
+  if (parts[0] === '1' && /^\d+$/.test(parts[1] || '')) {
+    parts[1] = parts[1].replace(/0+$/, '') || '0';
+  }
+  return parts.join('.');
+}
+
+function addReferenceValue(map: Map<string, string[]>, key: string, value: string) {
+  const values = map.get(key) || [];
+  if (!values.includes(value)) values.push(value);
+  map.set(key, values);
+}
+
+function referenceBaseCode(value: string) {
+  const normalized = normalizeProcessReferenceCode(value);
+  const parts = normalized.split('.');
+  return parts.length >= 2 ? parts.slice(0, 2).join('.') : normalized;
+}
+
+const processReferenceToQttt = new Map<string, string[]>();
+const qtttToProcessReference = new Map<string, string[]>();
+PROCESS_CODE_REFERENCES.forEach(item => {
+  const oldCode = normalizeProcessReferenceCode(item.maQuyTrinh);
+  const qtttCode = normalizeCode(item.maQtttIg);
+  addReferenceValue(processReferenceToQttt, oldCode, qtttCode);
+  addReferenceValue(qtttToProcessReference, qtttCode, oldCode);
+});
+
+function getMappedQtttCodes(value: string) {
+  const normalized = normalizeProcessReferenceCode(value);
+  const exact = processReferenceToQttt.get(normalized);
+  if (exact) return exact;
+
+  // File có thể chỉ mang mã gốc 1.116167, còn bảng quy ước ghi 1.116167_1.
+  // Chỉ tự chọn khi mã gốc có đúng một biến thể để tránh map nhầm.
+  const variants = [...processReferenceToQttt.keys()].filter(key => referenceBaseCode(key) === referenceBaseCode(normalized));
+  if (variants.length !== 1) return [];
+  return processReferenceToQttt.get(variants[0]) || [];
+}
+
+function getDisplayProcessCode(item: ProcedureCatalogItem) {
+  const mappedCodes = getMappedQtttCodes(item.maQuyTrinh);
+  return mappedCodes.length > 0 ? mappedCodes.join(', ') : item.maQuyTrinh;
+}
+
+function getSuggestedCatalogCandidates(code: string, catalog: ProcedureCatalogItem[]) {
+  const mappedCodes = new Set(getMappedQtttCodes(code).map(normalizeCode));
+  if (mappedCodes.size === 0) return [];
+  return catalog.filter(item => mappedCodes.has(normalizeCode(item.maQuyTrinh)));
+}
+
+const dvcProcedureToLpmCode = new Map(
+  DVC_PROCEDURE_REFERENCES.map(item => [normalizeCode(item.maDvc), normalizeCode(item.maLpm)])
+);
+
+function getConventionCandidates(code: string, catalog: ProcedureCatalogItem[]) {
+  const normalizedCode = normalizeCode(code);
+  const normalizedReferenceCode = normalizeProcessReferenceCode(code);
+  const candidates = new Map<string, ProcedureCatalogItem>();
+
+  const mappedQtttCodes = getMappedQtttCodes(code);
+  const mappedOldCodes = qtttToProcessReference.get(normalizedCode) || [];
+  const referenceCodes = new Set([normalizedCode, normalizedReferenceCode, ...mappedQtttCodes, ...mappedOldCodes]);
+  catalog
+    .filter(item => referenceCodes.has(normalizeCode(item.maQuyTrinh)) || referenceCodes.has(normalizeProcessReferenceCode(item.maQuyTrinh)))
+    .forEach(item => candidates.set(item.id, item));
+
+  // Quy ước mã gốc của mapping quy trình DVC-LPM: mã file có thể là
+  // 315828, còn catalog LPM là 315828_T hoặc 315828_X.
+  catalog
+    .filter(item => processBaseCode(item.maQuyTrinh) === processBaseCode(normalizedCode))
+    .forEach(item => candidates.set(item.id, item));
+
+  // Quy ước mã thủ tục DVC -> mã thủ tục LPM: ví dụ 124402 -> 1.116186.
+  const mappedLpmCode = dvcProcedureToLpmCode.get(normalizedCode);
+  if (mappedLpmCode) {
+    catalog
+      .filter(item => processBaseCode(item.maQuyTrinh) === processBaseCode(mappedLpmCode))
+      .forEach(item => candidates.set(item.id, item));
+  }
+
+  return [...candidates.values()];
+}
+
 function buildFileRow(file: File, catalog: ProcedureCatalogItem[]): ProcedureFileRow {
   const code = extractFileCode(file.name);
   const normalizedCode = normalizeCode(code);
@@ -58,6 +151,58 @@ function buildFileRow(file: File, catalog: ProcedureCatalogItem[]): ProcedureFil
       status: 'matched',
       candidates: exact,
       selectedProcedureIds: [exact[0].id]
+    };
+  }
+
+  const conventionCandidates = getConventionCandidates(code, catalog);
+  const hasExplicitProcessReference = getMappedQtttCodes(code).length > 0
+    || qtttToProcessReference.has(normalizedCode);
+  const conventionSuffix = normalizedCode.match(/\.(\d+)$/)?.[1];
+  const suffixCandidates = conventionSuffix
+    ? conventionCandidates.filter(item => normalizeCode(item.maQuyTrinh) === `${processBaseCode(normalizedCode)}.${conventionSuffix}`)
+    : [];
+
+  if (suffixCandidates.length === 1) {
+    return {
+      file,
+      fileName: file.name,
+      code,
+      status: 'matched',
+      candidates: suffixCandidates,
+      selectedProcedureIds: [suffixCandidates[0].id]
+    };
+  }
+
+  if (conventionCandidates.length === 1) {
+    return {
+      file,
+      fileName: file.name,
+      code,
+      status: 'matched',
+      candidates: conventionCandidates,
+      selectedProcedureIds: [conventionCandidates[0].id]
+    };
+  }
+
+  if (hasExplicitProcessReference && conventionCandidates.length > 1) {
+    return {
+      file,
+      fileName: file.name,
+      code,
+      status: 'matched',
+      candidates: conventionCandidates,
+      selectedProcedureIds: conventionCandidates.map(item => item.id)
+    };
+  }
+
+  if (conventionCandidates.length > 1) {
+    return {
+      file,
+      fileName: file.name,
+      code,
+      status: 'ambiguous',
+      candidates: conventionCandidates,
+      selectedProcedureIds: []
     };
   }
 
@@ -176,7 +321,7 @@ export const ProcedureUpdateView: React.FC<ProcedureUpdateViewProps> = ({
       ? {
           ...row,
           selectedProcedureIds: ids,
-          status: ids.length > 0 ? 'matched' : row.candidates.length > 0 ? 'ambiguous' : 'unmatched',
+          status: ids.length > 0 ? 'matched' : catalog.length > 0 ? 'ambiguous' : 'unmatched',
           results: undefined
         }
       : row));
@@ -332,7 +477,7 @@ export const ProcedureUpdateView: React.FC<ProcedureUpdateViewProps> = ({
               <thead className="bg-slate-950 text-slate-400">
                 <tr>
                   <th className="px-4 py-3">File</th>
-                  <th className="px-4 py-3">Mã tách được</th>
+                  <th className="px-4 py-3">Mã QTTT IG</th>
                   <th className="px-4 py-3">Quy trình</th>
                   <th className="px-4 py-3">idQuyTrinh</th>
                   <th className="px-4 py-3">Trạng thái</th>
@@ -341,7 +486,18 @@ export const ProcedureUpdateView: React.FC<ProcedureUpdateViewProps> = ({
               </thead>
               <tbody className="divide-y divide-slate-800">
                 {rows.map(row => {
-                  const selected = row.candidates.filter(item => row.selectedProcedureIds.includes(item.id));
+                  const suggestedCandidates = getSuggestedCatalogCandidates(row.code, catalog);
+                  const availableCandidates = row.candidates.length > 0
+                    ? row.candidates
+                    : suggestedCandidates.length > 0 ? suggestedCandidates : catalog;
+                  const mappedSuggestionCodes = getMappedQtttCodes(row.code);
+                  const mappedSuggestionItems = mappedSuggestionCodes.map(code => ({
+                    code,
+                    item: catalog.find(candidate => normalizeCode(candidate.maQuyTrinh) === normalizeCode(code))
+                      || row.candidates.find(candidate => getMappedQtttCodes(candidate.maQuyTrinh).includes(code))
+                  }));
+                  const hasMappedSuggestions = mappedSuggestionItems.length > 0;
+                  const selected = availableCandidates.filter(item => row.selectedProcedureIds.includes(item.id));
                   const rowClass = row.status === 'matched' ? 'bg-emerald-500/[0.03]' : row.status === 'ambiguous' ? 'bg-amber-500/[0.05]' : 'bg-red-500/[0.04]';
                   return (
                     <tr key={row.fileName} className={rowClass}>
@@ -349,21 +505,27 @@ export const ProcedureUpdateView: React.FC<ProcedureUpdateViewProps> = ({
                         <div className="truncate font-medium" title={row.fileName}>{row.fileName}</div>
                         <div className="mt-1 text-[10px] text-slate-500">{formatSize(row.file.size)}</div>
                       </td>
-                      <td className="px-4 py-3 font-mono text-blue-300">{row.code}</td>
+                      <td className="px-4 py-3 font-mono text-blue-300">
+                        <div>{getMappedQtttCodes(row.code).join(', ') || row.code}</div>
+                        {getMappedQtttCodes(row.code).length > 0 && <div className="mt-1 text-[10px] text-slate-500">File: {row.code}</div>}
+                      </td>
                       <td className="px-4 py-3">
-                        {row.candidates.length > 0 ? (
+                        {availableCandidates.length > 0 ? (
                           <select
                             multiple
                             value={row.selectedProcedureIds}
                             onChange={event => updateSelectedProcedures(
                               row.fileName,
-                              Array.from(event.target.selectedOptions, option => option.value)
+                              [...new Set(Array.from(event.target.selectedOptions, option => option.value)
+                                .filter(value => value && !value.startsWith('missing:')))]
                             )}
-                            size={Math.min(Math.max(row.candidates.length, 2), 5)}
+                            size={Math.min(Math.max((hasMappedSuggestions ? mappedSuggestionItems.length : availableCandidates.length) + 1, 2), 8)}
                             className="w-64 rounded-lg border border-slate-700 bg-slate-950 px-2 py-2 font-mono text-[11px] text-slate-200 outline-none focus:border-blue-500"
                           >
                             <option value="">-- Chọn quy trình --</option>
-                            {row.candidates.map(item => <option key={item.id} value={item.id}>{item.maQuyTrinh}</option>)}
+                            {hasMappedSuggestions
+                              ? mappedSuggestionItems.map(({ code, item }) => <option key={code} value={item?.id || `missing:${code}`} disabled={!item}>{code}{item ? '' : ' (chưa có trong LPM)'}</option>)
+                              : availableCandidates.map(item => <option key={item.id} value={item.id}>{getDisplayProcessCode(item)}</option>)}
                           </select>
                         ) : <span className="text-red-300">Không tìm thấy</span>}
                       </td>

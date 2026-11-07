@@ -46,13 +46,11 @@ import {
 } from './apiClient.js';
 import { importEngine } from './importEngine.js';
 import { generateExportExcel } from './exportService.js';
-import { checkBpmnStepMappings, mapOneBpmnProcess } from './bpmnStepMapper.js';
+import { checkBpmnStepMappings, mapOneBpmnProcess, getProcedureFileCatalog } from './bpmnStepMapper.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const WORKSPACE_ROOT = path.join(__dirname, '..', '..');
-const PROCEDURE_CATALOG_FILE = path.join(__dirname, 'procedureCatalog.json');
-const procedureCatalog = JSON.parse(fs.readFileSync(PROCEDURE_CATALOG_FILE, 'utf-8'));
 
 const app = express();
 const upload = multer({
@@ -240,8 +238,17 @@ app.get('/api/excel/samples', (req, res) => {
 });
 
 // --- PROCEDURE FILE UPDATE ---
-app.get('/api/procedures/catalog', (req, res) => {
-  res.json(procedureCatalog);
+app.get('/api/procedures/catalog', async (req, res) => {
+  try {
+    const items = await getProcedureFileCatalog();
+    res.json({
+      source: { pageIndex: 1, pageSize: 200, totalCount: items.length, totalPages: 1 },
+      items
+    });
+  } catch (err) {
+    const status = Number(err.status) || 500;
+    res.status(status).json({ error: `Không tải được danh sách quy trình LPM: ${err.message}` });
+  }
 });
 
 app.post('/api/procedures/update-file', upload.single('fileQuyTrinh'), async (req, res) => {
